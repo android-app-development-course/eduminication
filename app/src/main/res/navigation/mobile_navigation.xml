@@ -13,25 +13,25 @@
 
     <fragment
         android:id="@+id/nav_resource"
-        android:name="com.eduminication.ui.gallery.GalleryFragment"
+        android:name="com.eduminication.ui.setting.settingFragment"
         android:label="@string/menu_resource"
         tools:layout="@layout/fragment_resource" />
 
     <fragment
         android:id="@+id/nav_notification"
-        android:name="com.eduminication.ui.slideshow.SlideshowFragment"
+        android:name="com.eduminication.ui.notification.notificationFragment"
         android:label="@string/menu_notification"
         tools:layout="@layout/fragment_notification" />
 
     <fragment
         android:id="@+id/nav_message"
-        android:name="com.eduminication.ui.tools.ToolsFragment"
+        android:name="com.eduminication.ui.message.messageFragment"
         android:label="@string/menu_message"
         tools:layout="@layout/fragment_message" />
 
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.eduminication.ui.share.ShareFragment"
+        android:name="com.eduminication.ui.resource.resourceFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>

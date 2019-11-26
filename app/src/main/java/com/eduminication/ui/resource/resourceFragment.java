@@ -1,26 +1,24 @@
-package com.eduminication.ui.tools;
+package com.eduminication.ui.resource;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.eduminication.R;
 
-public class ToolsFragment extends Fragment {
+public class resourceFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private resourceViewModel resourceViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_message, container, false);
+        resourceViewModel =
+                ViewModelProviders.of(this).get(resourceViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_resource, container, false);
         return root;
     }
 }
