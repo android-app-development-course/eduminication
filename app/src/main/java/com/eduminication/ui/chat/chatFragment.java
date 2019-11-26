@@ -1,26 +1,24 @@
-package com.eduminication.ui.share;
+package com.eduminication.ui.chat;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.eduminication.R;
 
-public class ShareFragment extends Fragment {
+public class chatFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private chatViewModel chatViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_resource, container, false);
+        chatViewModel =
+                ViewModelProviders.of(this).get(chatViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_chat, container, false);
         return root;
     }
 }

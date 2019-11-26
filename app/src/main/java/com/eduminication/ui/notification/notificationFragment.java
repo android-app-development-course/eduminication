@@ -1,25 +1,23 @@
-package com.eduminication.ui.slideshow;
+package com.eduminication.ui.notification;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.eduminication.R;
 
-public class SlideshowFragment extends Fragment {
+public class notificationFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private notificationViewModel notificationViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
+        notificationViewModel =
+                ViewModelProviders.of(this).get(notificationViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notification, container, false);
         return root;
     }
