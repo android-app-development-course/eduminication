@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.eduminication.R;
@@ -21,7 +19,6 @@ public class resourceFragment extends Fragment {
 
     private resourceViewModel resourceViewModel;
     private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLayoutManager;
     private RecyclerView.Adapter mAdapter;
     private List<String> mDatas;
 
@@ -31,10 +28,12 @@ public class resourceFragment extends Fragment {
                 ViewModelProviders.of(this).get(resourceViewModel.class);
         View root = inflater.inflate(R.layout.fragment_resource, container, false);
 
+        initData();
         mRecyclerView = root.findViewById(R.id.resource_view);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
+        mRecyclerView.setLayoutManager(layoutManager);
+        Adapter adapter = new Adapter(mDatas);
+        mRecyclerView.setAdapter(adapter);
 
         return root;
     }
