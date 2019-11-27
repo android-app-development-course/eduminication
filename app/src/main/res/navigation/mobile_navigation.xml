@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_resource"
-        android:name="com.eduminication.ui.setting.settingFragment"
+        android:name="com.eduminication.ui.resource.resourceFragment"
         android:label="@string/menu_resource"
         tools:layout="@layout/fragment_resource" />
 
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.eduminication.ui.resource.resourceFragment"
+        android:name="com.eduminication.ui.setting.settingFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>

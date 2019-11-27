@@ -20,6 +20,7 @@
     <string name="menu_message">私信</string>
     <string name="menu_setting">设置</string>
     <string name="vice_menu">通用</string>
+    <string name="user">用户</string>
     <string name="communicate">Communicate</string>
     <string name="message">message</string>
 </resources>
