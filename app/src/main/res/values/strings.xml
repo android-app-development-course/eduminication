@@ -8,7 +8,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
@@ -24,4 +23,9 @@
     <string name="communicate">Communicate</string>
     <string name="message">message</string>
     <string name="avatar">avatar</string>
+    <string name="resource1">课件1</string>
+    <string name="resource2">课件2</string>
+    <string name="resource3">课件3</string>
+    <string name="resource4">课件4</string>
+    <string name="resource5">课件5</string>
 </resources>
