@@ -15,7 +15,11 @@
         android:id="@+id/nav_resource"
         android:name="com.eduminication.ui.resource.resourceFragment"
         android:label="@string/menu_resource"
-        tools:layout="@layout/fragment_resource" />
+        tools:layout="@layout/fragment_resource" >
+        <action
+            android:id="@+id/action_nav_resource_to_data"
+            app:destination="@id/data" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_notification"
@@ -34,4 +38,10 @@
         android:name="com.eduminication.ui.setting.settingFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/data"
+        android:name="com.eduminication.ui.setting.settingFragment"
+        android:label="@string/resource"
+        tools:layout="@layout/fragment_data" />
 </navigation>
