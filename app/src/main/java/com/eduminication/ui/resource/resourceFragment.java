@@ -63,8 +63,8 @@ public class resourceFragment extends Fragment {
                     case R.id.course5:
                         Navigation.findNavController(view).navigate(R.id.action_nav_resource_to_data);
                         break;
-                     default:
-                         break;
+                    default:
+                        break;
                 }
             }
         });

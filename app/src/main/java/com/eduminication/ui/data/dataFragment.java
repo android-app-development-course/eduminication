@@ -10,16 +10,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.eduminication.R;
-import com.eduminication.ui.resource.resourceViewModel;
+import com.github.clans.fab.FloatingActionMenu;
 
 public class dataFragment extends Fragment {
-    private resourceViewModel resourceViewModel;
+    private dataViewModel dataViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        resourceViewModel =
-                ViewModelProviders.of(this).get(resourceViewModel.class);
+        dataViewModel =
+                ViewModelProviders.of(this).get(dataViewModel.class);
         View root = inflater.inflate(R.layout.fragment_data, container, false);
+
+        FloatingActionMenu fab = (FloatingActionMenu)root.findViewById(R.id.fab);
+        fab.setClosedOnTouchOutside(true);
 
         return root;
     }

@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_resource" >
         <action
             android:id="@+id/action_nav_resource_to_data"
-            app:destination="@id/data" />
+            app:destination="@id/nev_data" />
     </fragment>
 
     <fragment
@@ -31,7 +31,11 @@
         android:id="@+id/nav_message"
         android:name="com.eduminication.ui.message.messageFragment"
         android:label="@string/menu_message"
-        tools:layout="@layout/fragment_message" />
+        tools:layout="@layout/fragment_message">
+    <argument
+        android:name="user"
+        app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_setting"
@@ -40,8 +44,9 @@
         tools:layout="@layout/fragment_setting" />
 
     <fragment
-        android:id="@+id/data"
-        android:name="com.eduminication.ui.setting.settingFragment"
+        android:id="@+id/nev_data"
+        android:name="com.eduminication.ui.data.dataFragment"
         android:label="@string/resource"
         tools:layout="@layout/fragment_data" />
+
 </navigation>
