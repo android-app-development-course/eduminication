@@ -28,7 +28,7 @@
         tools:layout="@layout/fragment_notification" />
 
     <fragment
-        android:id="@+id/nav_message"
+        android:id="@+id/nav_chat"
         android:name="com.eduminication.ui.chat.ChatFragment"
         android:label="@string/menu_message"
         tools:layout="@layout/fragment_chat">

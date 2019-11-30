@@ -14,7 +14,7 @@
             android:id="@id/nav_notification"
             android:title="@string/menu_notification"/>
         <item
-            android:id="@id/nav_message"
+            android:id="@id/nav_chat"
             android:title="@string/menu_message"/>
     </group>
 
