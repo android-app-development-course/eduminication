@@ -31,6 +31,7 @@ class ChatFragment : Fragment() {
             )
             chatViewModel.chatItemDatas.postValue( list)
             binding.inputContent.text?.clear()
+            binding.chatContent.adapter!!.notifyDataSetChanged()
         }
 
         context?.let {
