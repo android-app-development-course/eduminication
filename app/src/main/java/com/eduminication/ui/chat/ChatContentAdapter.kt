@@ -1,26 +1,34 @@
 package com.eduminication.ui.chat
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.eduminication.R
 import com.eduminication.databinding.ChatContentItemBinding
 
 class ChatContentAdapter :
-    ListAdapter<ChatItemData, RecyclerView.ViewHolder>(ChatItemDiffCallback()) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    ListAdapter<ChatItemData, ChatContentAdapter.ChatContentViewHolder>(ChatItemDiffCallback()) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatContentViewHolder {
+        return ChatContentViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                R.layout.chat_content_item, parent, false
+            )
+        )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onBindViewHolder(holder: ChatContentViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
     class ChatContentViewHolder(
         private val binding: ChatContentItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(chatItemData: ChatItemData) {
-            binding.apply {
+            with(binding) {
                 chatItem = chatItemData
                 //TODO replace the following by sql search
                 //senderAvatar=getAvatar(chatItemData.Sender)

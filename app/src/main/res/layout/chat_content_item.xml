@@ -13,8 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -31,37 +30,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/chat_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{chatItem.Content}"
-                android:textColor="@color/color_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/avatar"
-                android:backgroundTint="@color/color_primary_variant"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/color_primary"
                 android:contentDescription="@string/avatar"
                 android:scaleType="centerCrop"
-                android:src="@drawable/default_avatar1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/chat_content"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:src="@drawable/default_avatar1" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/chat_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:background="@color/color_primary_variant"
+                android:text="@{chatItem.Content}"
+                android:textColor="@color/color_background" />
+        </LinearLayout>
     </com.eduminication.ui.chat.ChatItemView>
-
 </layout>
