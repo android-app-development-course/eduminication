@@ -13,8 +13,6 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="communicate">Communicate</string>
-    <string name="message">message</string>
     <string name="menu_home">主页</string>
     <string name="menu_resource">教学资源</string>
     <string name="menu_notification">通知</string>
@@ -22,6 +20,9 @@
     <string name="menu_setting">设置</string>
     <string name="vice_menu">通用</string>
     <string name="user">用户</string>
+    <string name="communicate">Communicate</string>
+    <string name="message">message</string>
+    <string name="avatar">avatar</string>
     <string name="resource">课件</string>
     <string name="resource1">课件1</string>
     <string name="resource2">课件2</string>

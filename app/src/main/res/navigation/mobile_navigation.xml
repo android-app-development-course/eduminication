@@ -15,7 +15,7 @@
         android:id="@+id/nav_resource"
         android:name="com.eduminication.ui.resource.resourceFragment"
         android:label="@string/menu_resource"
-        tools:layout="@layout/fragment_resource" >
+        tools:layout="@layout/fragment_resource">
         <action
             android:id="@+id/action_nav_resource_to_data"
             app:destination="@id/nev_data" />
@@ -28,14 +28,16 @@
         tools:layout="@layout/fragment_notification" />
 
     <fragment
-        android:id="@+id/nav_message"
-        android:name="com.eduminication.ui.message.messageFragment"
+        android:id="@+id/nav_chat"
+        android:name="com.eduminication.ui.chat.ChatFragment"
         android:label="@string/menu_message"
-        tools:layout="@layout/fragment_message">
-    <argument
-        android:name="user"
-        app:argType="string" />
+        tools:layout="@layout/fragment_chat">
+
+        <argument
+            android:name="user"
+            app:argType="string" />
     </fragment>
+
 
     <fragment
         android:id="@+id/nav_setting"
