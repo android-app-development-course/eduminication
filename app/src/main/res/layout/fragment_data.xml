@@ -5,49 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/fab"
+    <RelativeLayout
+        android:id="@+id/rl_tbsView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingRight="10dp"
-        android:paddingBottom="45dp"
-        android:paddingLeft="10dp"
-        app:fab_colorNormal="@color/color_secondary"
-        app:fab_colorPressed="@color/color_secondary_variant"
-        app:menu_icon="@drawable/ic_menu_manage"
-        app:menu_labels_ellipsize="end"
-        app:menu_labels_singleLine="true"
-        app:menu_backgroundColor="#ccffffff">
+        android:layout_height="match_parent">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/fab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="45dp"
             app:fab_colorNormal="@color/color_secondary"
             app:fab_colorPressed="@color/color_secondary_variant"
-            android:src="@drawable/ic_menu_manage"
-            app:fab_size="mini"
-            app:fab_label="提问" />
+            app:menu_backgroundColor="#ccffffff"
+            app:menu_icon="@drawable/ic_menu_manage"
+            app:menu_labels_ellipsize="end"
+            app:menu_labels_singleLine="true">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_colorNormal="@color/color_secondary"
-            app:fab_colorPressed="@color/color_secondary_variant"
-            android:src="@drawable/ic_menu_manage"
-            app:fab_size="mini"
-            app:fab_label="回答" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_manage"
+                app:fab_colorNormal="@color/color_secondary"
+                app:fab_colorPressed="@color/color_secondary_variant"
+                app:fab_label="提问"
+                app:fab_size="mini" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_colorNormal="@color/color_secondary"
-            app:fab_colorPressed="@color/color_secondary_variant"
-            android:src="@drawable/ic_menu_manage"
-            app:fab_size="mini"
-            app:fab_label="提问" />
-    </com.github.clans.fab.FloatingActionMenu>
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_manage"
+                app:fab_colorNormal="@color/color_secondary"
+                app:fab_colorPressed="@color/color_secondary_variant"
+                app:fab_label="回答"
+                app:fab_size="mini" />
 
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_manage"
+                app:fab_colorNormal="@color/color_secondary"
+                app:fab_colorPressed="@color/color_secondary_variant"
+                app:fab_label="提问"
+                app:fab_size="mini" />
+        </com.github.clans.fab.FloatingActionMenu>
+    </RelativeLayout>
 </LinearLayout>
