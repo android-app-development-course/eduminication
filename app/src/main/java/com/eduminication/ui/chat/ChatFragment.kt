@@ -29,7 +29,8 @@ class ChatFragment : Fragment() {
                     ChatContent(binding.inputContent.text.toString())
                 )
             )
-            chatViewModel.chatItemDatas.value = list
+            chatViewModel.chatItemDatas.postValue( list)
+            binding.inputContent.text?.clear()
         }
 
         context?.let {

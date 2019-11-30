@@ -26,7 +26,7 @@
             type="com.eduminication.ui.chat.ChatItemData" />
     </data>
 
-    <com.eduminication.ui.chat.ChatItemView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -52,5 +52,5 @@
                 android:text="@{chatItem.Content.text}"
                 android:textColor="@color/color_background" />
         </LinearLayout>
-    </com.eduminication.ui.chat.ChatItemView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
