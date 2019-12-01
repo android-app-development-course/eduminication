@@ -47,8 +47,12 @@
 
     <fragment
         android:id="@+id/nev_data"
-        android:name="com.eduminication.ui.data.dataFragment"
+        android:name="com.eduminication.ui.data.DataFragment"
         android:label="@string/resource"
-        tools:layout="@layout/fragment_data" />
+        tools:layout="@layout/fragment_data" >
+        <argument
+            android:name="file_path"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

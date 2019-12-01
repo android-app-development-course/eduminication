@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class dataViewModel extends ViewModel {
+public class DataViewModel extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public dataViewModel() {
+    public DataViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is share fragment");
     }
