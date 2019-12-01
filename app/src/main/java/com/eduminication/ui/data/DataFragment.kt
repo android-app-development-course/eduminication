@@ -7,16 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
-
 import com.eduminication.R
-import com.github.clans.fab.FloatingActionMenu
+import com.eduminication.databinding.FragmentDataBinding
 import com.tencent.smtt.sdk.TbsReaderView
 
-import java.io.File
-
 class DataFragment : Fragment() {
-    private val dataViewModel= DataViewModel()
+    private lateinit var binding: FragmentDataBinding
+    private val dataViewModel = DataViewModel()
     private var mTbsReaderView: TbsReaderView? = null
     private val fileName = "向阳.pptx"
 
@@ -24,10 +21,9 @@ class DataFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_data, container, false)
+        binding = FragmentDataBinding.inflate(inflater, container, false)
 
-        val fab = root.findViewById<View>(R.id.fab) as FloatingActionMenu
-        fab.setClosedOnTouchOutside(true)
+        binding.fab.setClosedOnTouchOutside(true)
 
         mTbsReaderView = TbsReaderView(this.activity!!, this)
         rl_tbsView = root.findViewById(R.id.rl_tbsView) as RelativeLayout
@@ -39,7 +35,7 @@ class DataFragment : Fragment() {
         )
         local_display()
 
-        return root
+        return binding.root
     }
 
 

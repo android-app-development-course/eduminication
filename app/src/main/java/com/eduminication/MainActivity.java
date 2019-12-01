@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.eduminication.ui.chat.ChatFragmentArgs;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Navigation.findNavController(getParent(), R.id.nav_chat).navigate(
-                        R.id.,
+                        new ChatFragmentArgs(),
                         );
                 return false;
             }
