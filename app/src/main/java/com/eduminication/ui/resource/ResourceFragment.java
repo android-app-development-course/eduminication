@@ -31,6 +31,7 @@ public class ResourceFragment extends Fragment {
         });
         binding.resourceView.setAdapter(adapter);
 
+
         return binding.getRoot();
     }
 }

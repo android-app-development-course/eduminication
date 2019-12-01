@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:text="@{resourceItem.name}"
+        android:text="@{resource_item.name}"
         android:textSize="40sp"
         android:layout_marginStart="10dp"/>
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@{resourceItem.courses[0]}"
+            android:text="@{resource_item.courses[0]}"
             android:focusable="true" />
 
         <TextView
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@{resourceItem.courses[1]"
+            android:text="@{resource_item.courses[1]}"
             android:focusable="true" />
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@{resourceItem.courses[2]"
+            android:text="@{resource_item.courses[2]}"
             android:focusable="true" />
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@{resourceItem.courses[3]"
+            android:text="@{resource_item.courses[3]}"
             android:focusable="true" />
 
         <TextView
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@{resourceItem.courses[4]"
+            android:text="@{resource_item.courses[4]}"
             android:focusable="true" />
     </LinearLayout>
 </LinearLayout>

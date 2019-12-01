@@ -7,5 +7,5 @@ class TBSView(
     context: Context?,
     readerCallback: ReaderCallback?
 ) : TbsReaderView(context, readerCallback) {
-    
+
 }

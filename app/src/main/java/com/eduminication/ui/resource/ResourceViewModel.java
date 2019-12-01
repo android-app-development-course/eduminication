@@ -15,6 +15,7 @@ public class ResourceViewModel extends ViewModel {
         itemArrayList.add(new Item("数据库",pptResources));
         itemArrayList.add(new Item("编译原理",pptResources));
         itemArrayList.add(new Item("数字图像处理", pptResources));
+        data.setValue(itemArrayList);
     }
 
     public MutableLiveData<ArrayList<Item>> getData() {
