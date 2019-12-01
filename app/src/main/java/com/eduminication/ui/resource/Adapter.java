@@ -1,108 +1,74 @@
 package com.eduminication.ui.resource;
 
-import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.eduminication.R;
-import java.util.List;
+import com.eduminication.databinding.ResourceItemBinding;
 
-public class Adapter extends RecyclerView.Adapter implements View.OnClickListener {
-    private List<Item> dataList;
-    private Context context;
+class ItemDiffCallback extends DiffUtil.ItemCallback<Item> {
 
-    public Adapter(Context context, List<Item> list) {
-        this.context = context;
-        dataList = list;
+    @Override
+    public boolean areItemsTheSame(@NonNull Item oldItem, @NonNull Item newItem) {
+        return oldItem == newItem;
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.resource_item, parent, false);
-        return new ItemHolder(itemView);
+    public boolean areContentsTheSame(@NonNull Item oldItem, @NonNull Item newItem) {
+        return oldItem.equals(newItem);
+    }
+}
+
+
+public class Adapter extends ListAdapter<Item, Adapter.ItemHolder> {
+    Adapter(@NonNull DiffUtil.ItemCallback diffCallback) {
+        super(diffCallback);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        Item item = dataList.get(position);
-        ((ItemHolder) holder).name.setText(item.getName());
-        ItemHolder itemHolder = (ItemHolder) holder;
-        itemHolder.itemView.setTag(position);
-        itemHolder.course1.setTag(position);
-        itemHolder.course2.setTag(position);
-        itemHolder.course3.setTag(position);
-        itemHolder.course4.setTag(position);
-        itemHolder.course5.setTag(position);
+    public Adapter.ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ItemHolder(
+                (ResourceItemBinding) DataBindingUtil.inflate(
+                        LayoutInflater.from(parent.getContext()),
+                        R.layout.resource_item, parent, false
+                )
+        );
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public void onBindViewHolder(@NonNull ItemHolder holder, int position) {
+        holder.bind(getItem(position));
     }
 
-    @Override
-    public int getItemCount() {
-        return dataList.size();
-    }
+    class ItemHolder extends RecyclerView.ViewHolder {
+        private ResourceItemBinding binding;
 
-    public class ItemHolder extends RecyclerView.ViewHolder {
-        public TextView name;
-        public TextView course1, course2, course3, course4, course5;
-
-        public ItemHolder(View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.name);
-            course1 = itemView.findViewById(R.id.course1);
-            course2 = itemView.findViewById(R.id.course2);
-            course3 = itemView.findViewById(R.id.course3);
-            course4 = itemView.findViewById(R.id.course4);
-            course5 = itemView.findViewById(R.id.course5);
-            //将创建的View注册点击事件
-            itemView.setOnClickListener(Adapter.this);
-            course1.setOnClickListener(Adapter.this);
-            course2.setOnClickListener(Adapter.this);
-            course3.setOnClickListener(Adapter.this);
-            course4.setOnClickListener(Adapter.this);
-            course5.setOnClickListener(Adapter.this);
+        ItemHolder(@NonNull ResourceItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+            //TODO set name click event
+            //binding.name.setOnClickListener
+            binding.resources1.setOnClickListener(
+                    Navigation.createNavigateOnClickListener(R.id.action_nav_resource_to_data));
+            binding.resources2.setOnClickListener(
+                    Navigation.createNavigateOnClickListener(R.id.action_nav_resource_to_data));
+            binding.resources3.setOnClickListener(
+                    Navigation.createNavigateOnClickListener(R.id.action_nav_resource_to_data));
+            binding.resources4.setOnClickListener(
+                    Navigation.createNavigateOnClickListener(R.id.action_nav_resource_to_data));
+            binding.resources5.setOnClickListener(
+                    Navigation.createNavigateOnClickListener(R.id.action_nav_resource_to_data));
         }
-    }
 
-
-    ////////////////////////////以下为item点击处理///////////////////////////////
-
-    private OnRecyclerViewItemClickListener mOnItemClickListener = null;
-
-    public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
-        this.mOnItemClickListener = listener;
-    }
-
-    /** item里面有多个控件可以点击 */
-    public enum ViewName {
-        ITEM,
-        PRACTISE
-    }
-
-    public interface OnRecyclerViewItemClickListener {
-        void onClick(View view, ViewName viewName, int position);
-    }
-
-    @Override
-    public void onClick(View v) {
-        //注意这里使用getTag方法获取数据
-        int position = (int) v.getTag();
-        if (mOnItemClickListener != null) {
-            switch (v.getId()){
-                case R.id.name:
-                    mOnItemClickListener.onClick(v, ViewName.PRACTISE, position);
-                    break;
-                default:
-                    mOnItemClickListener.onClick(v, ViewName.ITEM, position);
-                    break;
-            }
+        void bind(Item item) {
+            binding.setResourceItem(item);
         }
     }
 }
