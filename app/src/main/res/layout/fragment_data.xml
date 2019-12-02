@@ -8,57 +8,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/fl"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:ignore="MissingConstraints" />
+            <com.github.barteksc.pdfviewer.PDFView
+                android:id="@+id/pdfView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-        <com.github.clans.fab.FloatingActionMenu
-            android:id="@+id/fab"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            app:fab_colorNormal="@color/color_secondary"
-            app:fab_colorPressed="@color/color_secondary_variant"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:menu_backgroundColor="@color/color_surface"
-            app:menu_icon="@drawable/ic_menu_manage"
-            app:menu_labels_ellipsize="end"
-            app:menu_labels_singleLine="true">
-
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_manage"
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/fab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:fab_colorNormal="@color/color_secondary"
                 app:fab_colorPressed="@color/color_secondary_variant"
-                app:fab_label="@string/question"
-                app:fab_size="mini" />
+                app:menu_backgroundColor="@color/color_surface"
+                app:menu_icon="@drawable/ic_menu_manage"
+                app:menu_labels_ellipsize="end"
+                app:menu_labels_singleLine="true">
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_answer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_manage"
-                app:fab_colorNormal="@color/color_secondary"
-                app:fab_colorPressed="@color/color_secondary_variant"
-                app:fab_label="@string/answer"
-                app:fab_size="mini" />
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_menu_manage"
+                    app:fab_colorNormal="@color/color_secondary"
+                    app:fab_colorPressed="@color/color_secondary_variant"
+                    app:fab_label="@string/question"
+                    app:fab_size="mini" />
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_manage"
-                app:fab_colorNormal="@color/color_secondary"
-                app:fab_colorPressed="@color/color_secondary_variant"
-                app:fab_label="@string/note"
-                app:fab_size="mini" />
-        </com.github.clans.fab.FloatingActionMenu>
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_menu_manage"
+                    app:fab_colorNormal="@color/color_secondary"
+                    app:fab_colorPressed="@color/color_secondary_variant"
+                    app:fab_label="@string/answer"
+                    app:fab_size="mini" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_menu_manage"
+                    app:fab_colorNormal="@color/color_secondary"
+                    app:fab_colorPressed="@color/color_secondary_variant"
+                    app:fab_label="@string/note"
+                    app:fab_size="mini" />
+            </com.github.clans.fab.FloatingActionMenu>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
