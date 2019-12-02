@@ -21,8 +21,8 @@ class DataFragment : Fragment() {
         binding.fab.setClosedOnTouchOutside(true)
 
         EasyPermissions.hasPermissions(context!!, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        EasyPermissions.hasPermissions(context!!, android.Manifest.permission.INTERNET)
         dataViewModel = DataViewModel(context!!)
-        binding.tbsView.src = dataViewModel.filePath.value
 
 
         return binding.root
