@@ -12,7 +12,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.eduminication.ui.chat.ChatFragmentArgs;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,15 +40,16 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         MenuItem item = navigationView.getMenu().findItem(R.id.nav_chat);
-        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Navigation.findNavController(getParent(), R.id.nav_chat).navigate(
-                        new ChatFragmentArgs(),
-                        );
-                return false;
-            }
-        })
+//        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                HomeFragmentDirections.ActionNavHomeToNavChat actionNavHomeToNavChat=HomeFragmentDirections.actionNavHomeToNavChat();
+//                Navigation.findNavController(getParent(), R.id.nav_chat).navigate(
+//                        new ChatFragmentArgs(),
+//                        );
+//                return false;
+//            }
+//        })
     }
 
     @Override

@@ -9,11 +9,15 @@
         android:id="@+id/nav_home"
         android:name="com.eduminication.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_chat"
+            app:destination="@id/nav_chat" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_resource"
-        android:name="com.eduminication.ui.resource.resourceFragment"
+        android:name="com.eduminication.ui.resource.ResourceFragment"
         android:label="@string/menu_resource"
         tools:layout="@layout/fragment_resource">
         <action

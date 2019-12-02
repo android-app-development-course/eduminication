@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="resource_item"
+            type="com.eduminication.ui.resource.Item" />
+    </data>
+
+    <LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,8 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:text="@{resource_item.name}"
         android:textSize="40sp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginStart="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,49 +25,54 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/course1"
+            android:id="@+id/resources1"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@string/resource1" />
+            android:text="@{resource_item.courses[0]}"
+            android:focusable="true" />
 
         <TextView
-            android:id="@+id/course2"
+            android:id="@+id/resources2"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@string/resource2" />
+            android:text="@{resource_item.courses[1]}"
+            android:focusable="true" />
 
         <TextView
-            android:id="@+id/course3"
+            android:id="@+id/resources3"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@string/resource3" />
+            android:text="@{resource_item.courses[2]}"
+            android:focusable="true" />
 
         <TextView
-            android:id="@+id/course4"
+            android:id="@+id/resources4"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@string/resource4" />
+            android:text="@{resource_item.courses[3]}"
+            android:focusable="true" />
 
         <TextView
-            android:id="@+id/course5"
+            android:id="@+id/resources5"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
-            android:text="@string/resource5" />
-
+            android:text="@{resource_item.courses[4]}"
+            android:focusable="true" />
     </LinearLayout>
 </LinearLayout>
+</layout>
