@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.eduminication.databinding.FragmentDataBinding
-import com.tencent.smtt.sdk.TbsReaderView
+import pub.devrel.easypermissions.EasyPermissions
 
 class DataFragment : Fragment() {
-    private lateinit var mTbsReaderView: TbsReaderView
     private lateinit var binding: FragmentDataBinding
-    private val dataViewModel = DataViewModel()
-    private val fileName = "向阳.pptx"
+    private lateinit var dataViewModel: DataViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,14 +20,11 @@ class DataFragment : Fragment() {
 
         binding.fab.setClosedOnTouchOutside(true)
 
-        mTbsReaderView = TbsReaderView(context!!) { _, _, _ -> }
-
-        binding.dataConstraintLayout.addView(mTbsReaderView)
+        EasyPermissions.hasPermissions(context!!, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        dataViewModel = DataViewModel(context!!)
+        binding.tbsView.src = dataViewModel.filePath.value
 
 
         return binding.root
     }
-
-
-
 }

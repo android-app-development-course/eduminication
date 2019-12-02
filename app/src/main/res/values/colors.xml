@@ -11,7 +11,7 @@
     <!--and menus. colorError is used to indicate an error state for components such as-->
     <!--text fields.-->
     <color name="color_background">#ffffff</color>
-    <color name="color_surface">#B8B8B8</color>
+    <color name="color_surface">#FFFFFF</color>
     <color name="color_error">#b00020</color>
 
     <!--"On" colors define how text, icons and strokes are colored in relation to the surface-->
