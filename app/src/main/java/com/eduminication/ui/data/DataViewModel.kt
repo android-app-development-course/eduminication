@@ -16,7 +16,7 @@ class DataViewModel(
 
     init {
         ionInstance
-            ?.write(File(context.cacheDir.absolutePath, url.toHashSet().toString()))
+            ?.write(File(context.cacheDir.absolutePath, url.toHashSet().asSequence().toString()))
             ?.setCallback(callback)
     }
 }
