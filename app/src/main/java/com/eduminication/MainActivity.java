@@ -1,7 +1,9 @@
 package com.eduminication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.koushikdutta.ion.Ion;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,24 +34,22 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_resource, R.id.nav_notification,
-                R.id.nav_chat, R.id.nav_setting, R.id.nev_data)
+                R.id.nav_chat, R.id.nav_setting, R.id.nav_data)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-//        MenuItem item = navigationView.getMenu().findItem(R.id.nav_chat);
-//        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                HomeFragmentDirections.ActionNavHomeToNavChat actionNavHomeToNavChat=HomeFragmentDirections.actionNavHomeToNavChat();
-//                Navigation.findNavController(getParent(), R.id.nav_chat).navigate(
-//                        new ChatFragmentArgs(),
-//                        );
-//                return false;
-//            }
-//        })
+        MenuItem item = navigationView.getMenu().findItem(R.id.nav_chat);
+        item.setOnMenuItemClickListener(item1 -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("user", "BlurringShadow");
+            navController.navigate(R.id.nav_chat, bundle);
+            return false;
+        });
+
+        Ion.getDefault(this).configure().setLogging("ion-sample", Log.DEBUG);
     }
 
     @Override

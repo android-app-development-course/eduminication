@@ -1,8 +1,10 @@
-package com.eduminication.ui.resource
+package com.eduminication.ui.courseResource
+
+data class Resource(var name: String, var url: String)
 
 data class Item(
-    val name: String,
-    val courses: Array<String>
+    var name: String,
+    var resources: Array<Resource>
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11,14 +13,14 @@ data class Item(
         other as Item
 
         if (name != other.name) return false
-        if (!courses.contentEquals(other.courses)) return false
+        if (!resources.contentEquals(other.resources)) return false
 
         return true
     }
 
     override fun hashCode(): Int {
         var result = name.hashCode()
-        result = 31 * result + courses.contentHashCode()
+        result = 31 * result + resources.contentHashCode()
         return result
     }
 }
