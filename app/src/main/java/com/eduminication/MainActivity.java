@@ -1,6 +1,7 @@
 package com.eduminication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,7 +13,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.eduminication.ui.home.HomeFragmentDirections;
 import com.google.android.material.navigation.NavigationView;
+import com.koushikdutta.ion.Ion;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_resource, R.id.nav_notification,
-                R.id.nav_chat, R.id.nav_setting, R.id.nev_data)
+                R.id.nav_chat, R.id.nav_setting, R.id.nav_data)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -40,16 +43,14 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         MenuItem item = navigationView.getMenu().findItem(R.id.nav_chat);
-//        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                HomeFragmentDirections.ActionNavHomeToNavChat actionNavHomeToNavChat=HomeFragmentDirections.actionNavHomeToNavChat();
-//                Navigation.findNavController(getParent(), R.id.nav_chat).navigate(
-//                        new ChatFragmentArgs(),
-//                        );
-//                return false;
-//            }
-//        })
+        item.setOnMenuItemClickListener(item1 -> {
+            HomeFragmentDirections.ActionNavHomeToNavChat actionNavHomeToNavChat =
+                    HomeFragmentDirections.actionNavHomeToNavChat("BlurringShadow");
+            Navigation.findNavController(getParent(), R.id.nav_chat).navigate(actionNavHomeToNavChat);
+            return false;
+        });
+
+        Ion.getDefault(this).configure().setLogging("ion-sample", Log.DEBUG);
     }
 
     @Override

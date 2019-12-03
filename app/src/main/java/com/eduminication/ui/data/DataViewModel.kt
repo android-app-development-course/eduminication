@@ -1,13 +1,22 @@
 package com.eduminication.ui.data
 
 import android.content.Context
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.net.URL
+import com.koushikdutta.async.future.FutureCallback
+import com.koushikdutta.ion.Ion
+import com.koushikdutta.ion.builder.Builders
+import java.io.File
 
 class DataViewModel(
-    val context: Context,
-    val filePath: MutableLiveData<URL> = MutableLiveData(
-        URL("file:///" + context.getExternalFilesDir(null) + "/test.pptx")
-    )
-) : ViewModel()
+    context: Context,
+    val url: String,
+    callback: FutureCallback<File?>
+) : ViewModel() {
+    val ionInstance: Builders.Any.B? = Ion.with(context).load(url)
+
+    init {
+        ionInstance
+            ?.write(File(context.cacheDir.absolutePath, url.toHashSet().toString()))
+            ?.setCallback(callback)
+    }
+}

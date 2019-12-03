@@ -17,12 +17,12 @@
 
     <fragment
         android:id="@+id/nav_resource"
-        android:name="com.eduminication.ui.resource.ResourceFragment"
+        android:name="com.eduminication.ui.courseResource.ResourceFragment"
         android:label="@string/menu_resource"
         tools:layout="@layout/fragment_resource">
         <action
             android:id="@+id/action_nav_resource_to_data"
-            app:destination="@id/nev_data" />
+            app:destination="@id/nav_data" />
     </fragment>
 
     <fragment
@@ -50,12 +50,12 @@
         tools:layout="@layout/fragment_setting" />
 
     <fragment
-        android:id="@+id/nev_data"
+        android:id="@+id/nav_data"
         android:name="com.eduminication.ui.data.DataFragment"
         android:label="@string/resource"
         tools:layout="@layout/fragment_data" >
         <argument
-            android:name="file_path"
+            android:name="url"
             app:argType="string" />
     </fragment>
 

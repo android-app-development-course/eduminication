@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="resource_item"
-            type="com.eduminication.ui.resource.Item" />
+            type="com.eduminication.ui.courseResource.Item" />
     </data>
-
-    <LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="@{resource_item.name}"
-        android:textSize="40sp"
-        android:layout_marginStart="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,54 +14,73 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/resources1"
-            android:clickable="true"
-            android:layout_width="match_parent"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_weight="1"
-            android:text="@{resource_item.courses[0]}"
-            android:focusable="true" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:text="@{resource_item.name}"
+            android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/resources2"
-            android:clickable="true"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_weight="1"
-            android:text="@{resource_item.courses[1]}"
-            android:focusable="true" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/resources3"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_weight="1"
-            android:text="@{resource_item.courses[2]}"
-            android:focusable="true" />
+            <TextView
+                android:id="@+id/resources1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:contentDescription="@{resource_item.resources[0].url}"
+                android:focusable="true"
+                android:text="@{resource_item.resources[0].name}"
+                android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/resources4"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_weight="1"
-            android:text="@{resource_item.courses[3]}"
-            android:focusable="true" />
+            <TextView
+                android:id="@+id/resources2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:contentDescription="@{resource_item.resources[1].url}"
+                android:focusable="true"
+                android:text="@{resource_item.resources[1].name}"
+                android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/resources5"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_weight="1"
-            android:text="@{resource_item.courses[4]}"
-            android:focusable="true" />
+            <TextView
+                android:id="@+id/resources3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:contentDescription="@{resource_item.resources[2].url}"
+                android:focusable="true"
+                android:text="@{resource_item.resources[2].name}"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/resources4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:contentDescription="@{resource_item.resources[3].url}"
+                android:focusable="true"
+                android:text="@{resource_item.resources[3].name}"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/resources5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:contentDescription="@{resource_item.resources[4].url}"
+                android:focusable="true"
+                android:text="@{resource_item.resources[4].name}"
+                android:textSize="30sp" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </layout>
