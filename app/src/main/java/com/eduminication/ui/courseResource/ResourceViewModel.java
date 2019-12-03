@@ -17,10 +17,10 @@ class ResourceViewModel extends ViewModel {
         ArrayList<Item> itemArrayList = new ArrayList<>();
         Resource[] pptResources = new Resource[]{
                 new Resource("课程1", ""),
-                new Resource("课程1", ""),
-                new Resource("课程1", ""),
-                new Resource("课程1", ""),
-                new Resource("课程1", "")
+                new Resource("课程2", ""),
+                new Resource("课程3", ""),
+                new Resource("课程4", ""),
+                new Resource("课程5", "")
         };
         itemArrayList.add(new Item("数据库", pptResources));
         itemArrayList.add(new Item("编译原理", pptResources));
