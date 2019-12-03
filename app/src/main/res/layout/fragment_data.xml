@@ -7,12 +7,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/pdf_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
+            android:max="100"
+            android:progress="1"
+            android:progressTint="@color/color_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -20,11 +28,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.github.clans.fab.FloatingActionMenu
-            android:id="@+id/fab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/menu_floating_button"
+            android:backgroundTintMode="multiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:fab_colorNormal="@color/color_secondary"
             app:fab_colorPressed="@color/color_secondary_variant"
+
+            app:layout_constraintBottom_toBottomOf="@+id/pdf_view"
+            app:layout_constraintEnd_toEndOf="parent"
             app:menu_backgroundColor="@color/color_surface"
             app:menu_icon="@drawable/ic_menu_manage"
             app:menu_labels_ellipsize="end"
@@ -60,11 +72,6 @@
                 app:fab_label="@string/note"
                 app:fab_size="mini" />
         </com.github.clans.fab.FloatingActionMenu>
-
-        <com.github.barteksc.pdfviewer.PDFView
-            android:id="@+id/pdf_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

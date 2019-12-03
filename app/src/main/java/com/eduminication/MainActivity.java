@@ -13,7 +13,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.eduminication.ui.home.HomeFragmentDirections;
 import com.google.android.material.navigation.NavigationView;
 import com.koushikdutta.ion.Ion;
 
@@ -44,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
         MenuItem item = navigationView.getMenu().findItem(R.id.nav_chat);
         item.setOnMenuItemClickListener(item1 -> {
-            HomeFragmentDirections.ActionNavHomeToNavChat actionNavHomeToNavChat =
-                    HomeFragmentDirections.actionNavHomeToNavChat("BlurringShadow");
-            Navigation.findNavController(getParent(), R.id.nav_chat).navigate(actionNavHomeToNavChat);
+            Bundle bundle = new Bundle();
+            bundle.putString("user", "BlurringShadow");
+            navController.navigate(R.id.nav_chat, bundle);
             return false;
         });
 

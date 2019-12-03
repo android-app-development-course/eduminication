@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.eduminication.databinding.FragmentDataBinding
 import com.koushikdutta.async.future.FutureCallback
-import com.koushikdutta.ion.ProgressCallback
+import kotlinx.android.synthetic.main.fragment_data.*
 import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 
@@ -23,7 +23,6 @@ class DataFragment : Fragment() {
         container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDataBinding.inflate(inflater, container, false)
-        binding.fab.setClosedOnTouchOutside(true)
 
         EasyPermissions.requestPermissions(this, "", 0, Manifest.permission.INTERNET)
         dataViewModel = DataViewModel(context!!, args.url,
@@ -36,9 +35,11 @@ class DataFragment : Fragment() {
                     e?.let { errorStr += it }
                     Toast.makeText(context, errorStr, Toast.LENGTH_LONG).show()
                 }
+
             })
 
-        dataViewModel.ionInstance?.progressBar(binding.progressBar)
+        dataViewModel.ionInstance?.progressBar(progress_bar)
+        binding.menuFloatingButton.setClosedOnTouchOutside(true)
 
         return binding.root
     }
