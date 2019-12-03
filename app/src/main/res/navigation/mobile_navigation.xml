@@ -2,15 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/global_navigation"
     app:startDestination="@+id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.eduminication.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_resource"
@@ -49,10 +48,16 @@
         android:id="@+id/nav_data"
         android:name="com.eduminication.ui.data.DataFragment"
         android:label="@string/resource"
-        tools:layout="@layout/fragment_data" >
+        tools:layout="@layout/fragment_data">
         <argument
             android:name="url"
             app:argType="string" />
     </fragment>
+
+    <action
+        android:id="@+id/action_global_nav_chat"
+        app:destination="@id/nav_chat"
+        app:popUpTo="@id/global_navigation"
+        app:popUpToInclusive="true" />
 
 </navigation>
