@@ -3,18 +3,25 @@ package com.eduminication;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewParent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.NavGraph;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
 import com.koushikdutta.ion.Ion;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_resource, R.id.nav_notification,
                 R.id.nav_chat, R.id.nav_setting, R.id.nav_data)
@@ -39,17 +44,79 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
+
+        //set navigation view call back with nav graph
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        MenuItem item = navigationView.getMenu().findItem(R.id.nav_chat);
-        item.setOnMenuItemClickListener(item1 -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("user", "BlurringShadow");
-            navController.navigate(R.id.nav_chat, bundle);
-            return false;
+
+        //to customize click listener but also preserve the nav graph jump
+        navigationView.setNavigationItemSelectedListener(item -> {
+            boolean handled;
+
+            switch (item.getItemId()) {
+                case R.id.nav_chat: {
+                    NavOptions.Builder builder = new NavOptions.Builder()
+                            .setLaunchSingleTop(true)
+                            .setEnterAnim(R.anim.nav_default_enter_anim)
+                            .setExitAnim(R.anim.nav_default_exit_anim)
+                            .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
+                            .setPopExitAnim(R.anim.nav_default_pop_exit_anim);
+                    if ((item.getOrder() & Menu.CATEGORY_SECONDARY) == 0) {
+                        try {
+                            //noinspection JavaReflectionMemberAccess
+                            builder.setPopUpTo(
+                                    ((NavDestination) NavigationUI.class
+                                            .getMethod("findStartDestination", NavGraph.class)
+                                            .invoke(null, navController.getGraph())).getId(),
+                                    false);
+                        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    NavOptions options = builder.build();
+                    try {
+                        Bundle bundle = new Bundle();
+                        //pass the data
+                        bundle.putString("user", "BlurringShadow");
+                        navController.navigate(item.getItemId(), bundle, options);
+                        handled = true;
+                    } catch (IllegalArgumentException e) {
+                        handled = false;
+                    }
+                }
+                break;
+
+                default: {
+                    handled = NavigationUI.onNavDestinationSelected(item, navController);
+                }
+                break;
+
+            }
+            if (handled) {
+                ViewParent parent = navigationView.getParent();
+                if (parent instanceof DrawerLayout)
+                    ((DrawerLayout) parent).closeDrawer(navigationView);
+                else
+                    try {
+                        @SuppressWarnings("JavaReflectionMemberAccess")
+                        BottomSheetBehavior bottomSheetBehavior = (BottomSheetBehavior) NavigationUI.class
+                                .getMethod("findBottomSheetBehavior", View.class).invoke(null, navigationView);
+                        if (bottomSheetBehavior != null)
+                            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                    } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+            }
+
+            return handled;
+
         });
 
-        Ion.getDefault(this).configure().setLogging("ion-sample", Log.DEBUG);
+        Ion.getDefault(this).
+                configure().
+                setLogging("ion-sample", Log.DEBUG);
+
     }
 
     @Override
