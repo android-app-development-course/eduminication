@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2018 Google LLC
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,26 +31,44 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
                 android:layout_margin="20dp"
                 android:contentDescription="@string/avatar"
                 android:scaleType="centerCrop"
                 android:src="@drawable/default_avatar1" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/chat_content"
+            <com.cxd.chatview.moudle.ChatView xmlns:chat="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
-                android:background="@color/color_primary_variant"
-                android:text="@{chatItem.Content.text}"
-                android:textColor="@color/color_background" />
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:minHeight="40dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="10dp"
+                chat:arrow_direction="left"
+                chat:arrow_height="12dp"
+                chat:arrow_up_distance="10dp"
+                chat:arrow_width="5dp"
+                chat:conner_radius="0dp"
+                chat:fill_color="@color/color_primary"
+                chat:is_arrow_center="true"
+                chat:press_fill_color="@color/color_primary_variant">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/chat_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@{chatItem.Content.text}"
+                    android:textColor="@color/color_background" />
+            </com.cxd.chatview.moudle.ChatView>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
