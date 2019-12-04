@@ -7,6 +7,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/url_test_input_text"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:helperTextEnabled="true"-->
+<!--            app:hintAnimationEnabled="true"-->
+<!--            app:hintEnabled="true"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent">-->
+<!--            -->
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/url_test_input_edit_text"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="URL" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/resource_view"
             android:layout_width="match_parent"
@@ -17,20 +34,5 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/url_test_input_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:helperTextEnabled="true"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/url_test_input_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="URL" />
-        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

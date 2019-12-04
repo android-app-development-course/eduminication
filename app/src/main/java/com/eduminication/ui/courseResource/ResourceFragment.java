@@ -1,8 +1,6 @@
 package com.eduminication.ui.courseResource;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,24 +24,11 @@ public class ResourceFragment extends Fragment {
         resourceViewModel.getData().observe(getViewLifecycleOwner(), adapter::submitList);
         binding.resourceView.setAdapter(adapter);
 
-        binding.urlTestInputEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                for (Item item : Objects.requireNonNull(resourceViewModel.getData().getValue()))
-                    for (Resource resource : item.getResources())
-                        resource.setUrl(editable.toString());
-                adapter.notifyDataSetChanged();
-            }
-        });
-
+        String url = "http://www.inkwelleditorial.com/pdfSample.pdf";
+        for (Item item : Objects.requireNonNull(resourceViewModel.getData().getValue()))
+            for (Resource resource : item.getResources())
+                resource.setUrl(url.toString());
+        adapter.notifyDataSetChanged();
         return binding.getRoot();
     }
 }

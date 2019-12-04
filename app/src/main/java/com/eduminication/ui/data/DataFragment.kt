@@ -18,11 +18,9 @@ class DataFragment : Fragment() {
     private lateinit var dataViewModel: DataViewModel
     private lateinit var binding: FragmentDataBinding
     private val args: DataFragmentArgs by navArgs()
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentDataBinding.inflate(inflater, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         EasyPermissions.requestPermissions(this, "", 0, Manifest.permission.INTERNET)
         dataViewModel = DataViewModel(context!!, args.url,
@@ -35,12 +33,16 @@ class DataFragment : Fragment() {
                     e?.let { errorStr += it }
                     Toast.makeText(context, errorStr, Toast.LENGTH_LONG).show()
                 }
-
+                progress_bar.visibility = View.GONE
             })
-
         dataViewModel.ionInstance?.progressBar(progress_bar)
         binding.menuFloatingButton.setClosedOnTouchOutside(true)
-
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentDataBinding.inflate(inflater, container, false)
         return binding.root
     }
 
