@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.eduminication.databinding.FragmentDataBinding
 import com.koushikdutta.async.future.FutureCallback
@@ -37,6 +38,9 @@ class DataFragment : Fragment() {
             })
         dataViewModel.ionInstance?.progressBar(progress_bar)
         binding.menuFloatingButton.setClosedOnTouchOutside(true)
+        fab_question.setOnClickListener{
+            Navigation.findNavController(view).navigate(DataFragmentDirections.actionNavDataToQAFragment())
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater,
