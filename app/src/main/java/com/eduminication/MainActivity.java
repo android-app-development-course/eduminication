@@ -34,16 +34,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_resource, R.id.nav_notification,
-                R.id.nav_chat, R.id.nav_setting, R.id.nav_data)
-                .setDrawerLayout(drawer)
-                .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(toolbar,navController);
 
 
         //set navigation view call back with nav graph
@@ -115,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         Ion.getDefault(this).
                 configure().
-                setLogging("ion-sample", Log.DEBUG);
+                setLogging("diary-ion", Log.DEBUG);
 
     }
 
