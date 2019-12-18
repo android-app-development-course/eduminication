@@ -9,7 +9,6 @@ import com.eduminication.databinding.FragmentQuestionDetailBinding
 import com.eduminication.ui.questionList.Question
 
 class QuestionDetailFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
