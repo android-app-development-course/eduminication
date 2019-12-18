@@ -52,6 +52,9 @@
         <argument
             android:name="url"
             app:argType="string" />
+        <action
+            android:id="@+id/action_nav_data_to_QAFragment"
+            app:destination="@id/QAFragment" />
     </fragment>
 
     <action
@@ -59,5 +62,21 @@
         app:destination="@id/nav_chat"
         app:popUpTo="@id/global_navigation"
         app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/QAFragment"
+        android:name="com.eduminication.ui.data.QAFragment"
+        android:label="@string/question_and_answer"
+        tools:layout="@layout/fragment_qa" />
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.eduminication.ui.data.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" />
+    <fragment
+        android:id="@+id/answerFragment"
+        android:name="com.eduminication.ui.data.AnswerFragment"
+        android:label="fragment_answer"
+        tools:layout="@layout/fragment_answer" />
 
 </navigation>

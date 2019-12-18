@@ -38,7 +38,7 @@
 
             app:layout_constraintBottom_toBottomOf="@+id/pdf_view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:menu_backgroundColor="@color/color_surface"
+            app:menu_backgroundColor="#00000000"
             app:menu_icon="@drawable/ic_menu_manage"
             app:menu_labels_ellipsize="end"
             app:menu_labels_singleLine="true">
