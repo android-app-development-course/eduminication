@@ -11,7 +11,6 @@ import com.eduminication.databinding.FragmentChatBinding
 import kotlinx.android.synthetic.main.fragment_chat.*
 import java.util.*
 
-//TODO Add constructor to initialize view model
 class ChatFragment : Fragment() {
     private val args: ChatFragmentArgs by navArgs()
     private val chatViewModel by lazy { ChatViewModel(args.user) }
