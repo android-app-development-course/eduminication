@@ -1,0 +1,41 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".QuestionDetailFragment">
+
+    <data>
+
+        <variable
+            name="question"
+            type="com.eduminication.ui.questionList.Question" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/question_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@{question.title}"
+            app:layout_constraintBottom_toTopOf="@id/question_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/question_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@{question.content}"
+            app:layout_constraintBottom_toTopOf="@id/question_date"
+            app:layout_constraintTop_toBottomOf="@id/question_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/question_date"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@{question.date.toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question_content" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

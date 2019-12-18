@@ -1,8 +1,8 @@
 package com.eduminication.ui.questionList
 
 class QuestionRepository {
-    fun getDiaries(): List<Question> {
-        return listOf(Question("", ""), Question("", ""))
+    fun getQuestions(): List<Question> {
+        return listOf(Question("问题一", "这是一个测试问题"))
     }
 
     fun insert(question: Question): List<Long> {

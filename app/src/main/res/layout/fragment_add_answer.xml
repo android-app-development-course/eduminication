@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.data.AddAnswerFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/answer_detail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/answer_pull"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/answer_pull"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/color_primary"
+                android:text="提交"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/answer_detail" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

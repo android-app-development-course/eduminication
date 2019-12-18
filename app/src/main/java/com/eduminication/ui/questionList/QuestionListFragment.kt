@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.eduminication.databinding.QuestionListItemBinding
+import androidx.navigation.fragment.findNavController
+import com.eduminication.databinding.FragmentQuestionListBinding
 import kotlinx.android.synthetic.main.fragment_question_list.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ class QuestionListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        questionListViewModel.diaryList.value = null
+        questionListViewModel.questionList.value = null
         refreshJob = lifecycleScope.launch {
             questionListViewModel.refreshData()
         }
@@ -35,17 +36,17 @@ class QuestionListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = QuestionListItemBinding.inflate(inflater, container, false).root
+    ): View? = FragmentQuestionListBinding.inflate(inflater, container, false).root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        diaries_recyler_view.adapter = QuestionRecylerViewAdapter { diaryId ->
+        questions_recyler_view.adapter = QuestionRecylerViewAdapter { diaryId ->
             AlertDialog.Builder(context).run {
                 setTitle("Delete a diary")
                 setMessage("Are you sure to delete this diary?")
                 setPositiveButton("Yes") { _, _ ->
-                    questionListViewModel.delete(questionListViewModel.diaryList.value!!.indexOfFirst {
+                    questionListViewModel.delete(questionListViewModel.questionList.value!!.indexOfFirst {
                         it.id == diaryId
                     })
                 }
@@ -55,29 +56,22 @@ class QuestionListFragment : Fragment() {
             true
         }.apply {
             questionListViewModel.let {
-                it.diaryList.observe(
+                it.questionList.observe(
                     viewLifecycleOwner,
                     Observer { list -> submitList(list) })
                 it.onDeleteListener = this::notifyItemRemoved
-                it.onAddListener = { diary ->
+                it.onAddListener = { _ ->
                     add_floating_button.show()
-                    notifyItemInserted(it.diaryList.value!!.lastIndex)
-                    /*
-                    TODO("add your navigation here")
+                    notifyItemInserted(it.questionList.value!!.lastIndex)
                     findNavController().navigate(
-                        DiaryListFragmentDirections.actionDiaryListFragmentToDiaryDetailFragment(
-                            diary.id
-                        )
+                        QuestionListFragmentDirections.actionQuestionListFragmentToAddQuestionFragment()
                     )
-                    */
                 }
                 it.onUpdateListener = { i: Int, _: Question -> notifyItemChanged(i) }
             }
         }
-
         add_floating_button.setOnClickListener {
             questionListViewModel.add(Question())
-            add_floating_button.hide()
         }
     }
 }

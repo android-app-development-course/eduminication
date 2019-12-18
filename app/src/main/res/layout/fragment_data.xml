@@ -44,23 +44,13 @@
             app:menu_labels_singleLine="true">
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_question"
+                android:id="@+id/fab_question_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_menu_manage"
                 app:fab_colorNormal="@color/color_secondary"
                 app:fab_colorPressed="@color/color_secondary_variant"
-                app:fab_label="@string/question"
-                app:fab_size="mini" />
-
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab_answer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_manage"
-                app:fab_colorNormal="@color/color_secondary"
-                app:fab_colorPressed="@color/color_secondary_variant"
-                app:fab_label="@string/answer"
+                app:fab_label="问题列表"
                 app:fab_size="mini" />
 
             <com.github.clans.fab.FloatingActionButton
