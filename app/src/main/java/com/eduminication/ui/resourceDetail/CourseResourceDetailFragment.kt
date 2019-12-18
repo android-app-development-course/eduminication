@@ -1,4 +1,4 @@
-package com.eduminication.ui.data
+package com.eduminication.ui.resourceDetail
 
 import android.Manifest
 import android.os.Bundle
@@ -15,10 +15,10 @@ import kotlinx.android.synthetic.main.fragment_data.*
 import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 
-class DataFragment : Fragment() {
+class CourseResourceDetailFragment : Fragment() {
     private lateinit var dataViewModel: DataViewModel
     private lateinit var binding: FragmentDataBinding
-    private val args: DataFragmentArgs by navArgs()
+    private val args: CourseResourceDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,7 +40,7 @@ class DataFragment : Fragment() {
         binding.menuFloatingButton.setClosedOnTouchOutside(true)
 
         fab_question_list.setOnClickListener{
-            Navigation.findNavController(view).navigate(DataFragmentDirections.actionNavDataToQuestionListFragment())
+            Navigation.findNavController(view).navigate(CourseResourceDetailFragmentDirections.actionNavDataToQuestionListFragment())
         }
     }
     override fun onCreateView(

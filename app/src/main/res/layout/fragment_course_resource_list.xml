@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CourseResourceListFragment">
+
+    <data>
+        <variable
+            name="courseResource"
+            type="com.eduminication.ui.courseResourceList.CourseResource" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/course_resource_recycler_view"
+        android:name="com.eduminication.CourseResourceListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:spanCount="2"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/course_resource_list_item" />
+</layout>

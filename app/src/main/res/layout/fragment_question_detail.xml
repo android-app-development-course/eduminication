@@ -4,7 +4,6 @@
     tools:context=".QuestionDetailFragment">
 
     <data>
-
         <variable
             name="question"
             type="com.eduminication.ui.questionList.Question" />

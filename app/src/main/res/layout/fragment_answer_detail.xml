@@ -5,7 +5,6 @@
     tools:context=".AnswerDetailFragment">
 
     <data>
-
         <variable
             name="answer"
             type="String" />
