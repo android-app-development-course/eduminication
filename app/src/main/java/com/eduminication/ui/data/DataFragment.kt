@@ -38,8 +38,9 @@ class DataFragment : Fragment() {
             })
         dataViewModel.ionInstance?.progressBar(progress_bar)
         binding.menuFloatingButton.setClosedOnTouchOutside(true)
-        fab_question.setOnClickListener{
-            Navigation.findNavController(view).navigate(DataFragmentDirections.actionNavDataToQAFragment())
+
+        fab_question_list.setOnClickListener{
+            Navigation.findNavController(view).navigate(DataFragmentDirections.actionNavDataToQuestionListFragment())
         }
     }
     override fun onCreateView(

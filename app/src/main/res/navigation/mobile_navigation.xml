@@ -53,8 +53,8 @@
             android:name="url"
             app:argType="string" />
         <action
-            android:id="@+id/action_nav_data_to_QAFragment"
-            app:destination="@id/QAFragment" />
+            android:id="@+id/action_nav_data_to_questionListFragment"
+            app:destination="@id/questionListFragment" />
     </fragment>
 
     <action
@@ -64,19 +64,38 @@
         app:popUpToInclusive="true" />
 
     <fragment
-        android:id="@+id/QAFragment"
-        android:name="com.eduminication.ui.data.QAFragment"
+        android:id="@+id/questionAnswerListFragment"
+        android:name="com.eduminication.ui.data.QuestionAnswerListFragment"
         android:label="@string/question_and_answer"
-        tools:layout="@layout/fragment_qa" />
+        tools:layout="@layout/fragment_question_answer_list" />
     <fragment
-        android:id="@+id/questionFragment"
-        android:name="com.eduminication.ui.data.QuestionFragment"
+        android:id="@+id/addQuestionFragment"
+        android:name="com.eduminication.ui.data.AddQuestionFragment"
         android:label="fragment_question"
-        tools:layout="@layout/fragment_question" />
+        tools:layout="@layout/fragment_add_question" />
     <fragment
-        android:id="@+id/answerFragment"
-        android:name="com.eduminication.ui.data.AnswerFragment"
+        android:id="@+id/addAnswerFragment"
+        android:name="com.eduminication.ui.data.AddAnswerFragment"
         android:label="fragment_answer"
-        tools:layout="@layout/fragment_answer" />
-
+        tools:layout="@layout/fragment_add_answer" />
+    <fragment
+        android:id="@+id/questionListFragment"
+        android:name="com.eduminication.ui.questionList.QuestionListFragment"
+        android:label="QuestionListFragment">
+        <action
+            android:id="@+id/action_questionListFragment_to_addQuestionFragment"
+            app:destination="@id/addQuestionFragment" />
+        <action
+            android:id="@+id/action_questionListFragment_to_QuestionAnswerListFragment"
+            app:destination="@id/questionAnswerListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/answerDetailFragment"
+        android:name="com.eduminication.AnswerDetailFragment"
+        android:label="fragment_answer_detail"
+        tools:layout="@layout/fragment_answer_detail">
+        <action
+            android:id="@+id/action_answerDetailFragment_to_addAnswerFragment"
+            app:destination="@id/addAnswerFragment" />
+    </fragment>
 </navigation>

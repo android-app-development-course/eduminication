@@ -5,7 +5,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.data.QAFragment">
+        tools:context=".ui.data.QuestionAnswerListFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <com.flyco.tablayout.SlidingTabLayout

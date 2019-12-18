@@ -3,6 +3,7 @@ package com.eduminication.ui.questionList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -25,21 +26,18 @@ class QuestionViewHolder(
     init {
         binding.questionCardView.run {
             setOnClickListener {
-                navigateToDiary(binding.question!!, itemView)
+                navigateToQuestion(binding.question!!, itemView)
             }
         }
     }
 
-    private fun navigateToDiary(
+    private fun navigateToQuestion(
         diary: Question,
         it: View
     ) {
-        /*
-        TODO("add your navigation here")
         it.findNavController().navigate(
-            DiaryListFragmentDirections.actionDiaryListFragmentToDiaryDetailFragment(diary.id)
+            QuestionListFragmentDirections.actionQuestionListFragmentToQuestionAnswerListFragment()
         )
-        */
     }
 
     fun bind(item: Question, onLongClickListener: (Long) -> Boolean) {
