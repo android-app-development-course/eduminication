@@ -1,4 +1,4 @@
-package com.eduminication.ui.data
+package com.eduminication.ui.resourceDetail
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

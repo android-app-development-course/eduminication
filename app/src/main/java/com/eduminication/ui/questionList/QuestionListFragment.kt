@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.eduminication.databinding.FragmentQuestionListBinding
 import kotlinx.android.synthetic.main.fragment_question_list.*
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class QuestionListFragment : Fragment() {
@@ -22,12 +21,11 @@ class QuestionListFragment : Fragment() {
     */
     private val questionListViewModel = QuestionListViewModel()
 
-    private var refreshJob: Job? = null
 
     override fun onResume() {
         super.onResume()
         questionListViewModel.questionList.value = null
-        refreshJob = lifecycleScope.launch {
+        lifecycleScope.launch {
             questionListViewModel.refreshData()
         }
     }
