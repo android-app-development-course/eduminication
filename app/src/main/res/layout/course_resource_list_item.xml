@@ -7,7 +7,7 @@
     <data>
         <variable
             name="courseResource"
-            type="com.eduminication.ui.courseResourceList.CourseResource" />
+            type="com.eduminication.data.CourseResource" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

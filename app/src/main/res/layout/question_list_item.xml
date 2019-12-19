@@ -5,7 +5,7 @@
     <data>
         <variable
             name="question"
-            type="com.eduminication.ui.questionList.Question" />
+            type="com.eduminication.data.Question" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
