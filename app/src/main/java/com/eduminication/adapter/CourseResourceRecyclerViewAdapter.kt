@@ -1,6 +1,7 @@
 package com.eduminication.adapter
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +11,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eduminication.data.CourseResource
 import com.eduminication.databinding.CourseResourceListItemBinding
-import com.eduminication.ui.courseResourceList.CourseResourceFragmentDirections
+import com.eduminication.fragment.CourseResourceFragmentDirections
 
 private class CourseResourceDiffCallback : DiffUtil.ItemCallback<CourseResource>() {
     override fun areItemsTheSame(oldItem: CourseResource, newItem: CourseResource): Boolean {
-    return oldItem.id == newItem.id
-}
+        return oldItem.objectId == newItem.objectId
+    }
 
-override fun areContentsTheSame(oldItem: CourseResource, newItem: CourseResource): Boolean {
-    return oldItem == newItem
-}
+    @SuppressLint("DiffUtilEquals")
+    override fun areContentsTheSame(oldItem: CourseResource, newItem: CourseResource): Boolean {
+        return oldItem == newItem
+    }
 }
 
 class CourseResourceViewHolder(
@@ -28,7 +30,7 @@ class CourseResourceViewHolder(
     init {
         binding.courseResourceCardView.run{
             setOnClickListener {
-                navigateToCourseResource(binding.courseResource!!, itemView)
+                navigateToCourseResource(binding.courseResource!!, it)
             }
         }
     }

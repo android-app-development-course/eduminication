@@ -9,9 +9,9 @@
     <string name="action_settings">Settings</string>
     <string name="question">提问</string>
     <string name="answer">回答</string>
-    <string name="data_struct">数据结构</string>
-    <string name="compilers">编译原理</string>
-    <string name="net">计算机网络</string>
+    <string name="data_structure">数据结构</string>
+    <string name="principles_of_compiler">编译原理</string>
+    <string name="linear_algebra">线性代数</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>

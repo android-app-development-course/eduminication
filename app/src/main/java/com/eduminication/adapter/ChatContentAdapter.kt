@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eduminication.R
-import com.eduminication.databinding.ChatContentItemBinding
 import com.eduminication.data.ChatRecord
+import com.eduminication.databinding.ChatContentItemBinding
 
 class ChatContentAdapter :
     ListAdapter<ChatRecord, ChatContentAdapter.ChatContentViewHolder>(
@@ -32,9 +32,7 @@ class ChatContentAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(chatRecordItemData: ChatRecord) {
             with(binding) {
-                chatItem = chatRecordItemData
-                //TODO replace the following by sql search
-                //senderAvatar=getAvatar(chatRecordItemData.Sender)
+                chatRecordItem = chatRecordItemData
                 executePendingBindings()
             }
         }

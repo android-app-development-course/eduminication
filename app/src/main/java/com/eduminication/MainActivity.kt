@@ -1,4 +1,4 @@
-package com.eduminication.fragment
+package com.eduminication
 
 import android.os.Bundle
 import android.util.Log
@@ -10,8 +10,9 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.eduminication.R
+import cn.bmob.v3.Bmob
 import com.eduminication.databinding.ActivityMainBinding
+import com.eduminication.utils.BombId
 import com.koushikdutta.ion.Ion
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        Bmob.initialize(this, BombId)
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         NavigationUI.setupWithNavController(
             binding.toolbar,

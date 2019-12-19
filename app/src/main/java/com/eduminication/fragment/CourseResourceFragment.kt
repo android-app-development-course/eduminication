@@ -19,9 +19,9 @@ class CourseResourceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         pages = arrayOf(
-            ViewPageFragmentInfo(getString(R.string.data_struct), CourseResourceListFragment::class),
-            ViewPageFragmentInfo(getString(R.string.compilers), CourseResourceListFragment::class),
-            ViewPageFragmentInfo(getString(R.string.net), CourseResourceListFragment::class)
+            ViewPageFragmentInfo(getString(R.string.data_structure), CourseResourceListFragment::class),
+            ViewPageFragmentInfo(getString(R.string.PrinciplesofCompiler), CourseResourceListFragment::class),
+            ViewPageFragmentInfo(getString(R.string.linear_algebra), CourseResourceListFragment::class)
         )
 
         view_pager.adapter = object : FragmentStateAdapter(this) {

@@ -1,7 +1,6 @@
 package com.eduminication.data
 
-import java.util.*
 
-data class ChatContent(val text: String)
+data class ChatContent(val text: String): BmobData()
 
-data class ChatRecord(val Date: Date, val Sender: String, val Content: ChatContent)
+data class ChatRecord(val Sender: String, val Content: ChatContent): BmobData()

@@ -23,5 +23,6 @@
     <color name="color_on_error">#E91E63</color>
     <color name="question_item_color">#FFCA28</color>
     <color name="color_transparent">#00000000</color>
+    <color name="annotation_text_color">#83000000</color>
 
 </resources>
