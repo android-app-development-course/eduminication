@@ -16,12 +16,7 @@ class CourseResourceListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
-    ): View? {
-        return FragmentCourseResourceListBinding.inflate(inflater, container, false).apply {
-            courseResource = CourseResource("课件一", "这个一个测试课件", "http://www.inkwelleditorial.com/pdfSample.pdf")
-        }.root
-    }
+    ): View? = FragmentCourseResourceListBinding.inflate(inflater, container, false).root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
