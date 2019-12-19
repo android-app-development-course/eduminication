@@ -22,8 +22,8 @@
             type="android.graphics.drawable.Drawable" />
 
         <variable
-            name="chatItem"
-            type="com.eduminication.ui.chat.ChatItemData" />
+            name="chatRecordItem"
+            type="com.eduminication.data.ChatRecord" />
     </data>
 
     <LinearLayout
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:text="@{chatItem.Content.text}"
+                android:text="@{chatRecordItem.Content.text}"
                 android:textColor="@color/color_background" />
         </com.cxd.chatview.moudle.ChatView>
     </LinearLayout>

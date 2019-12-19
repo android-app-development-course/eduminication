@@ -1,12 +1,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".QuestionDetailFragment">
+    tools:context=".fragment.QuestionDetailFragment">
 
     <data>
         <variable
             name="question"
-            type="com.eduminication.ui.questionList.Question" />
+            type="com.eduminication.data.Question" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

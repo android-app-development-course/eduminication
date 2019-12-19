@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.eduminication.ui.home.HomeFragment"
+        android:name="com.eduminication.fragment.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/nav_course_resource"
-        android:name="com.eduminication.ui.courseResourceList.CourseResourceFragment"
+        android:name="com.eduminication.fragment.CourseResourceFragment"
         android:label="@string/menu_resource"
         tools:layout="@layout/fragment_course_resource">
         <action
@@ -23,13 +23,13 @@
 
     <fragment
         android:id="@+id/nav_notification"
-        android:name="com.eduminication.ui.notification.notificationFragment"
+        android:name="com.eduminication.fragment.NotificationFragment"
         android:label="@string/menu_notification"
         tools:layout="@layout/fragment_notification" />
 
     <fragment
         android:id="@+id/nav_chat"
-        android:name="com.eduminication.ui.chat.ChatFragment"
+        android:name="com.eduminication.fragment.ChatFragment"
         android:label="@string/menu_message"
         tools:layout="@layout/fragment_chat">
 
@@ -40,13 +40,13 @@
 
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.eduminication.ui.setting.settingFragment"
+        android:name="com.eduminication.fragment.SettingFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
 
     <fragment
         android:id="@+id/nav_course_resource_detail"
-        android:name="com.eduminication.ui.resourceDetail.CourseResourceDetailFragment"
+        android:name="com.eduminication.fragment.CourseResourceDetailFragment"
         android:label="@string/resource"
         tools:layout="@layout/fragment_data">
         <argument
@@ -65,7 +65,7 @@
 
     <fragment
         android:id="@+id/questionAnswerListFragment"
-        android:name="com.eduminication.ui.resourceDetail.QuestionAnswerListFragment"
+        android:name="com.eduminication.fragment.QuestionAnswerListFragment"
         android:label="@string/question_and_answer"
         tools:layout="@layout/fragment_question_answer_list" >
         <action
@@ -74,17 +74,17 @@
     </fragment>
     <fragment
         android:id="@+id/addQuestionFragment"
-        android:name="com.eduminication.ui.resourceDetail.AddQuestionFragment"
+        android:name="com.eduminication.fragment.AddQuestionFragment"
         android:label="fragment_question"
         tools:layout="@layout/fragment_add_question" />
     <fragment
         android:id="@+id/addAnswerFragment"
-        android:name="com.eduminication.ui.resourceDetail.AddAnswerFragment"
+        android:name="com.eduminication.fragment.AddAnswerFragment"
         android:label="fragment_answer"
         tools:layout="@layout/fragment_add_answer" />
     <fragment
         android:id="@+id/questionListFragment"
-        android:name="com.eduminication.ui.questionList.QuestionListFragment"
+        android:name="com.eduminication.fragment.QuestionListFragment"
         android:label="QuestionListFragment">
         <action
             android:id="@+id/action_questionListFragment_to_addQuestionFragment"
