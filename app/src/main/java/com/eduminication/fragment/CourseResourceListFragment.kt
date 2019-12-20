@@ -10,14 +10,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.eduminication.adapter.CourseResourceRecylerViewAdapter
 import com.eduminication.databinding.FragmentCourseResourceListBinding
-import com.eduminication.viewmodel.CourseResourceLIstViewModelFactory
+import com.eduminication.viewmodel.CourseResourceListViewModelFactory
 import com.eduminication.viewmodel.CourseResourceListViewModel
 import kotlinx.android.synthetic.main.fragment_course_resource_list.*
 import kotlinx.coroutines.launch
 
 class CourseResourceListFragment : Fragment() {
     private val courseResourceListViewModel by viewModels<CourseResourceListViewModel> {
-        CourseResourceLIstViewModelFactory()
+        CourseResourceListViewModelFactory()
     }
 
     override fun onCreateView(

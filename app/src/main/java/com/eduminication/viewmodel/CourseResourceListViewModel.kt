@@ -9,9 +9,9 @@ import java.sql.SQLException
 
 class CourseResourceListViewModel : ViewModel() {
     private val courseResourceListRepository = CourseResourceRepository()
-    private val courseResourceList= MutableLiveData<MutableList<CourseResource>>(mutableListOf())
+    val courseResourceList= MutableLiveData<MutableList<CourseResource>>(mutableListOf())
 
-    fun refreshData(listener:(List<CourseResource>)->Unit) {
+    fun refreshData(listener:(List<CourseResource>)->Unit= { _ -> }) {
         courseResourceListRepository.getAll { list, exception ->
             if (exception != null || list == null)
                 throw SQLException("Unable to get data: $exception")

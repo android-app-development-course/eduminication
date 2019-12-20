@@ -9,12 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.eduminication.adapter.ChatContentAdapter
 import com.eduminication.databinding.FragmentChatBinding
-import com.eduminication.data.ChatContent
-import com.eduminication.ui.chat.ChatFragmentArgs
-import com.eduminication.data.ChatRecord
 import com.eduminication.viewmodel.ChatViewModel
 import kotlinx.android.synthetic.main.fragment_chat.*
-import java.util.*
 
 class ChatFragment : Fragment() {
     private val args: ChatFragmentArgs by navArgs()
@@ -26,13 +22,13 @@ class ChatFragment : Fragment() {
 
         send_button.setOnClickListener {
             val list = chatViewModel.chatItemDatas.value!!
-            list.add(
-                ChatRecord(
-                    Date(),
-                    chatViewModel.Owner,
-                    ChatContent(input_content.text.toString())
-                )
-            )
+//            list.add(
+//                ChatRecord(
+//                    Date(),
+//                    chatViewModel.Owner,
+//                    ChatContent(input_content.text.toString())
+//                )
+//            )
             chatViewModel.chatItemDatas.postValue(list)
             input_content.text?.clear()
             chat_content.adapter!!.notifyDataSetChanged()

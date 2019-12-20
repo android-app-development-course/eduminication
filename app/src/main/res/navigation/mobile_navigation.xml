@@ -19,13 +19,16 @@
         <action
             android:id="@+id/action_nav_course_resource_to_course_resource_detail"
             app:destination="@id/nav_course_resource_detail"/>
+        <action
+            android:id="@+id/action_nav_course_resource_to_uploadCourseResourceFragment"
+            app:destination="@id/uploadCourseResourceFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_notification"
-        android:name="com.eduminication.fragment.NotificationFragment"
-        android:label="@string/menu_notification"
-        tools:layout="@layout/fragment_notification" />
+        android:id="@+id/nav_login"
+        android:name="com.eduminication.fragment.LoginFragment"
+        android:label=""
+        tools:layout="@layout/fragment_login" />
 
     <fragment
         android:id="@+id/nav_chat"
@@ -93,4 +96,9 @@
             android:id="@+id/action_questionListFragment_to_questionAnswerListFragment"
             app:destination="@id/questionAnswerListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/uploadCourseResourceFragment"
+        android:name="com.eduminication.fragment.UploadCourseResourceFragment"
+        android:label="fragment_upload_course_resource"
+        tools:layout="@layout/fragment_upload_course_resource" />
 </navigation>

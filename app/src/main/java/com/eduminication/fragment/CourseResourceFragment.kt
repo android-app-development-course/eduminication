@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.eduminication.R
 import com.eduminication.databinding.FragmentQuestionAnswerListBinding
 import com.eduminication.utils.ViewPageFragmentInfo
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.fragment_question_answer_list.*
+import kotlinx.android.synthetic.main.fragment_course_resource.*
+import kotlinx.android.synthetic.main.fragment_question_answer_list.tab_layout
+import kotlinx.android.synthetic.main.fragment_question_answer_list.view_pager
 
 class CourseResourceFragment : Fragment() {
     private lateinit var pages: Array<ViewPageFragmentInfo>
@@ -20,7 +23,7 @@ class CourseResourceFragment : Fragment() {
 
         pages = arrayOf(
             ViewPageFragmentInfo(getString(R.string.data_structure), CourseResourceListFragment::class),
-            ViewPageFragmentInfo(getString(R.string.PrinciplesofCompiler), CourseResourceListFragment::class),
+            ViewPageFragmentInfo(getString(R.string.principles_of_compiler), CourseResourceListFragment::class),
             ViewPageFragmentInfo(getString(R.string.linear_algebra), CourseResourceListFragment::class)
         )
 
@@ -34,6 +37,12 @@ class CourseResourceFragment : Fragment() {
         TabLayoutMediator(tab_layout, view_pager) { tab, position ->
             tab.text = pages[position].title
         }.attach()
+
+        fab_upload.setOnClickListener {
+            findNavController().navigate(
+                CourseResourceFragmentDirections.actionNavCourseResourceToUploadCourseResourceFragment()
+            )
+        }
     }
 
     override fun onCreateView(

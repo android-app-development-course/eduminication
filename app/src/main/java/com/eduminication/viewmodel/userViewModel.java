@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationViewModel extends ViewModel {
+public class userViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationViewModel() {
+    public userViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is slideshow fragment");
     }

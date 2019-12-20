@@ -9,17 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import com.eduminication.R;
-import com.eduminication.viewmodel.NotificationViewModel;
+import com.eduminication.viewmodel.userViewModel;
 
-public class NotificationFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
-    private NotificationViewModel notificationViewModel;
+    private userViewModel notificationViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         notificationViewModel =
-                ViewModelProviders.of(this).get(NotificationViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notification, container, false);
+                ViewModelProviders.of(this).get(userViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_login, container, false);
         return root;
     }
 }

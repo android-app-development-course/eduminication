@@ -2,47 +2,21 @@ package com.eduminication.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.eduminication.data.Question
 import com.eduminication.dao.QuestionRepository
-import kotlinx.coroutines.launch
+import com.eduminication.data.Question
+import java.sql.SQLException
 
-class QuestionListViewModel(private val questionRepository: QuestionRepository) : ViewModel() {
+class QuestionListViewModel: ViewModel() {
+    private val questionRepository = QuestionRepository()
     var questionList = MutableLiveData<MutableList<Question>>()
 
-    var onAddListener: ((Question) -> Unit)? = null
-    var onUpdateListener: ((Int, Question) -> Unit)? = null
-    var onDeleteListener: ((Int) -> Unit)? = null
-
-    constructor() : this(QuestionRepository())
-
-    suspend fun refreshData() {
-        questionList.value =
-            questionRepository.getQuestions().toMutableList().apply { sortBy { it.id } }
-    }
-
-    fun add(diary: Question) {
-        questionList.value!!.add(diary)
-        viewModelScope.launch {
-            diary.id = questionRepository.insert(diary)[0]
-            onAddListener?.run { this(diary) }
+    fun refreshData(listener:(List<Question>)->Unit= { _ -> }) {
+        questionRepository.getAll { list, exception ->
+            if (exception != null || list == null)
+                throw SQLException("Unable to get data: $exception")
+            questionList.value = list
+            listener(list)
         }
     }
 
-    fun update(index: Int, diary: Question) {
-        questionList.value!![index] = diary
-        viewModelScope.launch {
-            questionRepository.update(diary)
-            onUpdateListener?.run { this(index, diary) }
-        }
-    }
-
-    fun delete(index: Int) {
-        val id = questionList.value!![index].id
-        questionList.value!!.removeAt(index)
-        viewModelScope.launch {
-            questionRepository.delete(id)
-            onDeleteListener?.run { this(index) }
-        }
-    }
 }

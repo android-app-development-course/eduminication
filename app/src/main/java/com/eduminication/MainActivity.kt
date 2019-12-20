@@ -3,6 +3,7 @@ package com.eduminication
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -64,6 +65,10 @@ class MainActivity : AppCompatActivity() {
             handled
         }
 
+        val avatar = findViewById<ImageView>(R.id.avatar)
+        avatar.setOnClickListener {
+
+        }
         Ion.getDefault(this).configure().setLogging("diary-ion", Log.DEBUG)
     }
 }
