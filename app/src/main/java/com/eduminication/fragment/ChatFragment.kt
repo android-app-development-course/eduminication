@@ -6,40 +6,44 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.navArgs
+import cn.bmob.v3.BmobUser
 import com.eduminication.adapter.ChatContentAdapter
+import com.eduminication.data.ChatContent
+import com.eduminication.data.ChatRecord
+import com.eduminication.data.User
 import com.eduminication.databinding.FragmentChatBinding
 import com.eduminication.viewmodel.ChatViewModel
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 class ChatFragment : Fragment() {
-    private val args: ChatFragmentArgs by navArgs()
-    private val chatViewModel by lazy { ChatViewModel(args.user) }
-    private lateinit var binding: FragmentChatBinding
+    private val chatViewModel by lazy { ChatViewModel() }
+
+    override fun onResume() {
+        super.onResume()
+        chatViewModel.refreshData()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         send_button.setOnClickListener {
-            val list = chatViewModel.chatItemDatas.value!!
-//            list.add(
-//                ChatRecord(
-//                    Date(),
-//                    chatViewModel.Owner,
-//                    ChatContent(input_content.text.toString())
-//                )
-//            )
-            chatViewModel.chatItemDatas.postValue(list)
+            val list = chatViewModel.chatItemData.value!!
+            list.add(
+                ChatRecord(
+                    BmobUser.getCurrentUser(User::class.java),
+                    ChatContent(input_content.text.toString())
+                )
+            )
             input_content.text?.clear()
-            chat_content.adapter!!.notifyDataSetChanged()
+            chat_content.adapter!!.notifyItemInserted(list.lastIndex)
         }
 
         ChatContentAdapter().let {
-            chatViewModel.chatItemDatas.observe(
+            chatViewModel.chatItemData.observe(
                 viewLifecycleOwner,
                 Observer(it::submitList)
             )
-            binding.chatContent.adapter = it
+            chat_content.adapter = it
         }
     }
 
@@ -47,8 +51,5 @@ class ChatFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentChatBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    ) = FragmentChatBinding.inflate(inflater, container, false).root
 }
