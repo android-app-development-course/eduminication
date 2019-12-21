@@ -35,11 +35,11 @@ class RegisterFragment : Fragment() {
             userViewModel.user.value!!.userType = UserType.Teacher
         }
 
-        regist.setOnClickListener {
-            if (user_password.toString() == confirm_password.toString()) {
+        register.setOnClickListener {
+            if (user_password.editText!!.text.toString() == confirm_password.editText!!.text.toString()) {
                 userViewModel.register{ _, exception ->
                     exception?.let {
-                        Toast.makeText(context, "添加错误: $exception", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "添加错误: $exception", Toast.LENGTH_LONG).show()
                     }
                 }
             } else

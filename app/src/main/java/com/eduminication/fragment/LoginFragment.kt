@@ -26,19 +26,18 @@ class LoginFragment : Fragment() {
             userViewModel.user.value!!.setPassword(text.toString())
         }
 
-        regist.setOnClickListener {
+        register.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionNavLoginToRegisterFragment())
         }
 
         login.setOnClickListener {
-            if (user_name.toString() != "" && user_password.toString() != "") {
+            if (user_name.editText!!.text.toString() != "" && user_password.editText!!.text.toString() != "")
                 userViewModel.logIn { exception ->
                     exception?.let {
-                        Toast.makeText(context, "登录错误: $exception", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "登录错误: $exception", Toast.LENGTH_LONG).show()
                     }
                 }
-            } else
-                Toast.makeText(context, "请输入账号和密码", Toast.LENGTH_LONG).show()
+            else Toast.makeText(context, "请输入账号和密码", Toast.LENGTH_LONG).show()
         }
     }
 

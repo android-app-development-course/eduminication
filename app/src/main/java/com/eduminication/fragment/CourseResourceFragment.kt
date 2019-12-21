@@ -46,5 +46,5 @@ class CourseResourceFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = FragmentCourseResourceBinding.inflate(inflater, container, false).root
+    ) = FragmentCourseResourceBinding.inflate(inflater, container, false).root
 }

@@ -7,7 +7,7 @@ import com.eduminication.dao.UserRepository
 import com.eduminication.data.User
 
 class UserViewModel : ViewModel() {
-    val user = MutableLiveData<User>(User())
+    val user = MutableLiveData(User())
     private val userRepository = UserRepository()
 
     fun logIn( listener: (BmobException?) -> Unit)=userRepository.logIn(user.value!!,listener)

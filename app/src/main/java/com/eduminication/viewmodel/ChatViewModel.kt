@@ -2,26 +2,21 @@ package com.eduminication.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.eduminication.dao.ChatRecordRepository
 import com.eduminication.data.ChatRecord
+import java.sql.SQLException
 
-class ChatViewModel(val Owner:String) : ViewModel() {
+class ChatViewModel : ViewModel() {
+    val chatRecordRepository = ChatRecordRepository()
+    val chatItemData = MutableLiveData(mutableListOf<ChatRecord>())
 
-    val chatItemDatas = getData()
-
-    private fun getData(): MutableLiveData<MutableList<ChatRecord>> {
-        return MutableLiveData(
-            mutableListOf(
-//                ChatRecord(
-//                    Date(),
-//                    "Mars",
-//                    ChatContent("Hello Android")
-//                ),
-//                ChatRecord(
-//                    Date(),
-//                    "BlurringShadow",
-//                    ChatContent("Hello Kotlin")
-//                )
-            )
-        )
+    fun refreshData() {
+        chatRecordRepository.getAll { mutableList, bmobException ->
+            if (bmobException != null || mutableList == null)
+                throw SQLException("unable to get data: $bmobException")
+            chatItemData.value = mutableList
+        }
     }
+
+
 }
