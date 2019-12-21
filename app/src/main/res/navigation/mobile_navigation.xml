@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/global_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_login">
 
     <fragment
         android:id="@+id/nav_home"
@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_nav_course_resource_to_course_resource_detail"
             app:destination="@id/nav_course_resource_detail" />
+        <action
+            android:id="@+id/action_nav_course_resource_to_uploadCourseFragment"
+            app:destination="@id/uploadCourseFragment" />
     </fragment>
 
     <fragment
@@ -29,6 +32,9 @@
         <action
             android:id="@+id/action_nav_login_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_home"
+            app:destination="@+id/nav_home" />
     </fragment>
 
     <fragment
@@ -100,4 +106,9 @@
     <action
         android:id="@+id/action_global_nav_login"
         app:destination="@id/nav_login" />
+    <fragment
+        android:id="@+id/uploadCourseFragment"
+        android:name="com.eduminication.fragment.UploadCourseResourceFragment"
+        android:label="fragment_upload_course"
+        tools:layout="@layout/fragment_upload_course_resource" />
 </navigation>

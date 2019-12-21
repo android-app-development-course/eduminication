@@ -18,5 +18,4 @@ class QuestionListViewModel: ViewModel() {
             listener(list)
         }
     }
-
 }

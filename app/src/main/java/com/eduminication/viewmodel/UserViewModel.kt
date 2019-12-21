@@ -12,5 +12,5 @@ class UserViewModel : ViewModel() {
 
     fun logIn( listener: (BmobException?) -> Unit)=userRepository.logIn(user.value!!,listener)
 
-    fun register(listener: (String?, BmobException?) -> Unit)=userRepository.add(user.value!!,listener)
+    fun register(listener: (String?, BmobException?) -> Unit)=userRepository.signIn(user.value!!,listener)
 }

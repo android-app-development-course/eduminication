@@ -4,7 +4,6 @@ import android.Manifest
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -16,7 +15,6 @@ import com.eduminication.databinding.ActivityMainBinding
 import com.eduminication.utils.BombId
 import com.koushikdutta.ion.Ion
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
 import pub.devrel.easypermissions.EasyPermissions
 
 class MainActivity : AppCompatActivity() {

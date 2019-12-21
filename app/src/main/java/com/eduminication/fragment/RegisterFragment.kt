@@ -20,11 +20,11 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         user_name.editText!!.doOnTextChanged { text, _, _, _ ->
-            userViewModel.user.value!!.username = text.toString()
+            userViewModel.user.value!!.name = text.toString()
         }
 
         user_password.editText?.doOnTextChanged { text, _, _, _ ->
-            userViewModel.user.value!!.setPassword(text.toString())
+            userViewModel.user.value!!.password = text.toString()
         }
 
         student_type.setOnClickListener {
@@ -50,5 +50,5 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = FragmentRegisterBinding.inflate(inflater, container, false).root
+    ) = FragmentRegisterBinding.inflate(inflater, container, false).root
 }

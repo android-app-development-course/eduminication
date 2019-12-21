@@ -17,6 +17,4 @@ class ChatViewModel : ViewModel() {
             chatItemData.value = mutableList
         }
     }
-
-
 }

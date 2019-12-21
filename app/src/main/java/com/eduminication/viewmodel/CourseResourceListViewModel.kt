@@ -20,8 +20,7 @@ class CourseResourceListViewModel : ViewModel() {
         }
     }
 
-    fun add( courseResource: CourseResource,listener: (String?, BmobException?) -> Unit = { _, _ -> })
-    {
+    fun add( courseResource: CourseResource,listener: (String?, BmobException?) -> Unit = { _, _ -> }) {
         courseResourceList.value!!.add(courseResource)
         courseResourceListRepository.add(courseResource,listener)
     }

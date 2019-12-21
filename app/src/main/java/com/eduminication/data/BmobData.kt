@@ -8,16 +8,18 @@ import io.reactivex.disposables.Disposable
 
 
 open class BmobData : BmobObject() {
-    fun add(listener: (String?, BmobException?) -> Unit): Disposable =
+    fun add(listener: (String?, BmobException?) -> Unit = { _, _ -> }): Disposable =
         save(object : SaveListener<String>() {
             override fun done(str: String?, exception: BmobException?) = listener(str, exception)
         })
 
-    fun delete(listener: (BmobException?) -> Unit): Disposable = delete(object : UpdateListener() {
-        override fun done(exception: BmobException?) = listener(exception)
-    })
+    fun delete(listener: (BmobException?) -> Unit = { _ -> }): Disposable =
+        delete(object : UpdateListener() {
+            override fun done(exception: BmobException?) = listener(exception)
+        })
 
-    fun update(listener: (BmobException?) -> Unit): Disposable = update(object : UpdateListener() {
-        override fun done(exception: BmobException?) = listener(exception)
-    })
+    fun update(listener: (BmobException?) -> Unit = { _ -> }): Disposable =
+        update(object : UpdateListener() {
+            override fun done(exception: BmobException?) = listener(exception)
+        })
 }

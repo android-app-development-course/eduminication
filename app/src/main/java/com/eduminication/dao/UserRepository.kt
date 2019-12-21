@@ -1,28 +1,22 @@
 package com.eduminication.dao
 
+import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
-import cn.bmob.v3.listener.SaveListener
+import cn.bmob.v3.listener.FindListener
 import com.eduminication.data.User
 import io.reactivex.disposables.Disposable
 
 class UserRepository {
-    fun add(user: User, listener: (String?, BmobException?) -> Unit): Disposable =
-        user.signUp(object : SaveListener<String>() {
-            override fun done(str: String?, exception: BmobException?) = listener(str, exception)
-        })
+    fun signIn(user: User, listener: (String?, BmobException?) -> Unit): Disposable =
+        user.add(listener)
 
-    fun delete(user: User, listener: (BmobException?) -> Unit): Disposable =
-        user.delete(object : cn.bmob.v3.listener.UpdateListener() {
-            override fun done(exception: cn.bmob.v3.exception.BmobException?) = listener(exception)
+    fun logIn(user: User, listener: (BmobException?) -> Unit): Disposable {
+        val query = BmobQuery<User>()
+        query.addWhereEqualTo("name",user.name)
+        query.addWhereEqualTo("password",user.password)
+        query.addWhereEqualTo("userType",user.userType)
+        return query.findObjects(object : FindListener<User?>() {
+            override fun done(user: MutableList<User?>?, exception: BmobException?) = listener(exception)
         })
-
-    fun update(user: User, listener: (BmobException?) -> Unit): Disposable =
-        user.update(object : cn.bmob.v3.listener.UpdateListener() {
-            override fun done(exception: cn.bmob.v3.exception.BmobException?) = listener(exception)
-        })
-
-    fun logIn(user: User, listener: (BmobException?) -> Unit): Disposable =
-        user.login(object : SaveListener<User?>() {
-            override fun done(user: User?, exception: BmobException?) = listener(exception)
-        })
+    }
 }
