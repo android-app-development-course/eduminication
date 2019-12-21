@@ -65,10 +65,12 @@ class MainActivity : AppCompatActivity() {
             handled
         }
 
-        val avatar = findViewById<ImageView>(R.id.avatar)
-        avatar.setOnClickListener {
-
+        var headview = binding.navigationView.inflateHeaderView(R.layout.nav_header_main)
+        var head_image = headview.findViewById<ImageView>(R.id.avatar)
+        head_image.setOnClickListener {
+            navController.navigate(R.id.nav_login)
         }
+
         Ion.getDefault(this).configure().setLogging("diary-ion", Log.DEBUG)
     }
 }

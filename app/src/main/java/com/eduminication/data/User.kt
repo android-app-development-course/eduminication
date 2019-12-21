@@ -8,7 +8,7 @@ enum class UserType{
 }
 
 data class User (
-    val userType:UserType
+    var userType: UserType =UserType.Teacher
 ):BmobUser() {
     fun isTeacher() = userType == UserType.Teacher
     fun isStudent() = userType == UserType.Student

@@ -19,16 +19,17 @@
         <action
             android:id="@+id/action_nav_course_resource_to_course_resource_detail"
             app:destination="@id/nav_course_resource_detail"/>
-        <action
-            android:id="@+id/action_nav_course_resource_to_uploadCourseResourceFragment"
-            app:destination="@id/uploadCourseResourceFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_login"
         android:name="com.eduminication.fragment.LoginFragment"
         android:label=""
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_chat"
@@ -97,8 +98,11 @@
             app:destination="@id/questionAnswerListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/uploadCourseResourceFragment"
-        android:name="com.eduminication.fragment.UploadCourseResourceFragment"
-        android:label="fragment_upload_course_resource"
-        tools:layout="@layout/fragment_upload_course_resource" />
+        android:id="@+id/registerFragment"
+        android:name="com.eduminication.fragment.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <action
+        android:id="@+id/action_global_nav_login"
+        app:destination="@id/nav_login" />
 </navigation>

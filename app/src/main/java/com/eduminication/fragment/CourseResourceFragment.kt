@@ -5,15 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.eduminication.R
-import com.eduminication.databinding.FragmentQuestionAnswerListBinding
+import com.eduminication.databinding.FragmentCourseResourceBinding
 import com.eduminication.utils.ViewPageFragmentInfo
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.fragment_course_resource.*
-import kotlinx.android.synthetic.main.fragment_question_answer_list.tab_layout
-import kotlinx.android.synthetic.main.fragment_question_answer_list.view_pager
+import kotlinx.android.synthetic.main.fragment_question_answer_list.*
 
 class CourseResourceFragment : Fragment() {
     private lateinit var pages: Array<ViewPageFragmentInfo>
@@ -38,16 +35,16 @@ class CourseResourceFragment : Fragment() {
             tab.text = pages[position].title
         }.attach()
 
-        fab_upload.setOnClickListener {
-            findNavController().navigate(
-                CourseResourceFragmentDirections.actionNavCourseResourceToUploadCourseResourceFragment()
-            )
-        }
+//        fab_upload.setOnClickListener {
+//            findNavController().navigate(
+//                CourseResourceFragmentDirections.actionNavCourseResourceToUploadCourseResourceFragment()
+//            )
+//        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = FragmentQuestionAnswerListBinding.inflate(inflater, container, false).root
+    ): View? = FragmentCourseResourceBinding.inflate(inflater, container, false).root
 }
