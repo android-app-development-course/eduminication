@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.eduminication.databinding.FragmentAnswerDetailBinding
-import com.eduminication.ui.resourceDetail.QuestionAnswerListFragmentDirections
 import kotlinx.android.synthetic.main.fragment_answer_detail.*
 
 class AnswerDetailFragment : Fragment() {

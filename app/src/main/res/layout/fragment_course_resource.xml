@@ -23,7 +23,7 @@
             app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/fab_upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
@@ -32,7 +32,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:focusable="true" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

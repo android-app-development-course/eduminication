@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eduminication.data.Question
 import com.eduminication.databinding.QuestionListItemBinding
-import com.eduminication.ui.questionList.QuestionListFragmentDirections
+import com.eduminication.fragment.QuestionListFragmentDirections
 
 
 private class QuestionDiffCallback : DiffUtil.ItemCallback<Question>() {
     override fun areItemsTheSame(oldItem: Question, newItem: Question): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.objectId == newItem.objectId
     }
 
     override fun areContentsTheSame(oldItem: Question, newItem: Question): Boolean {
@@ -45,7 +45,7 @@ class QuestionViewHolder(
     fun bind(item: Question, onLongClickListener: (Long) -> Boolean) {
         binding.run {
             question = item
-            questionCardView.setOnLongClickListener { onLongClickListener(item.id) }
+//            questionCardView.setOnLongClickListener { onLongClickListener(item.objectId) }
             executePendingBindings()
         }
     }

@@ -3,6 +3,7 @@ package com.eduminication
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -62,6 +63,12 @@ class MainActivity : AppCompatActivity() {
             if (handled) binding.drawerLayout.closeDrawer(binding.navigationView)
 
             handled
+        }
+
+        var headview = binding.navigationView.inflateHeaderView(R.layout.nav_header_main)
+        var head_image = headview.findViewById<ImageView>(R.id.avatar)
+        head_image.setOnClickListener {
+            navController.navigate(R.id.nav_login)
         }
 
         Ion.getDefault(this).configure().setLogging("diary-ion", Log.DEBUG)

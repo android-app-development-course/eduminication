@@ -22,10 +22,14 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_notification"
-        android:name="com.eduminication.fragment.NotificationFragment"
-        android:label="@string/menu_notification"
-        tools:layout="@layout/fragment_notification" />
+        android:id="@+id/nav_login"
+        android:name="com.eduminication.fragment.LoginFragment"
+        android:label=""
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_chat"
@@ -93,4 +97,12 @@
             android:id="@+id/action_questionListFragment_to_questionAnswerListFragment"
             app:destination="@id/questionAnswerListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.eduminication.fragment.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <action
+        android:id="@+id/action_global_nav_login"
+        app:destination="@id/nav_login" />
 </navigation>

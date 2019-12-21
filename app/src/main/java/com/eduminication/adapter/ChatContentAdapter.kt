@@ -46,8 +46,6 @@ private class ChatItemDiffCallback : DiffUtil.ItemCallback<ChatRecord>() {
     }
 
     override fun areContentsTheSame(oldItem: ChatRecord, newItem: ChatRecord): Boolean {
-        return oldItem.Date == newItem.Date &&
-                oldItem.Content == newItem.Content &&
-                oldItem.Sender == newItem.Sender
+        return oldItem.Content == newItem.Content && oldItem.Sender == newItem.Sender
     }
 }
