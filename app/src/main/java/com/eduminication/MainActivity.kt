@@ -1,10 +1,12 @@
 package com.eduminication
 
 import android.Manifest
-import android.content.Context
-import android.util.AttributeSet
+import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,15 +22,15 @@ import pub.devrel.easypermissions.EasyPermissions
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
-    override fun onCreateView(name: String, context: Context, attrs: AttributeSet) =
-        ActivityMainBinding.inflate(layoutInflater).root
-
-    override fun onStart() {
-        super.onStart()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val headerView = navigation_view.inflateHeaderView(R.layout.nav_header_main)
 
         EasyPermissions.requestPermissions(this, "", 0, Manifest.permission.INTERNET)
 
         Bmob.initialize(this, BombId)
+
         Ion.getDefault(this).configure().setLogging("diary-ion", Log.DEBUG)
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             handled
         }
 
-        avatar.setOnClickListener {
+        headerView.findViewById<View>(R.id.avatar).setOnClickListener {
             navController.navigate(GlobalNavigationDirections.actionGlobalNavLogin())
             drawer_layout.closeDrawer(navigation_view)
         }
