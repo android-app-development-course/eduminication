@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.eduminication.MainActivity
 import com.eduminication.R
 import com.eduminication.databinding.FragmentCourseResourceBinding
 import com.eduminication.utils.ViewPageFragmentInfo
@@ -17,6 +18,9 @@ import kotlinx.android.synthetic.main.fragment_question_answer_list.view_pager
 
 class CourseResourceFragment : Fragment() {
     private lateinit var pages: Array<ViewPageFragmentInfo>
+    private val sharedViewModel by lazy {
+        (activity as MainActivity).sharedViewModel
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,6 +43,7 @@ class CourseResourceFragment : Fragment() {
         }.attach()
 
         fab_upload.setOnClickListener {
+            sharedViewModel.courseResorcePos = tab_layout.selectedTabPosition
             findNavController().navigate(
                 CourseResourceFragmentDirections.actionNavCourseResourceToUploadCourseFragment()
             )

@@ -6,4 +6,6 @@ import com.eduminication.data.User
 
 class SharedViewModel :ViewModel() {
     var user = MutableLiveData<User>()
+    var courseResorcePos = 0
+    var courseItemPos = 0
 }

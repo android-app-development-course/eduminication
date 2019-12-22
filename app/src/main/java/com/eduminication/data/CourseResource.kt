@@ -1,10 +1,11 @@
 package com.eduminication.data
 
-import cn.bmob.v3.datatype.BmobFile
+import java.io.File
 
 data class CourseResource(
      var name: String,
      val author:User,
      var preview: String,
-     var courseFile: BmobFile
+     var courseFile: File,
+     var courseType: Int
 ): BmobData()
