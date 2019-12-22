@@ -13,11 +13,14 @@ import androidx.navigation.ui.NavigationUI
 import cn.bmob.v3.Bmob
 import com.eduminication.databinding.ActivityMainBinding
 import com.eduminication.utils.BombId
+import com.eduminication.viewmodel.SharedViewModel
 import com.koushikdutta.ion.Ion
 import kotlinx.android.synthetic.main.activity_main.*
 import pub.devrel.easypermissions.EasyPermissions
 
 class MainActivity : AppCompatActivity() {
+    val sharedViewModel= SharedViewModel()
+
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {

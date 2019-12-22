@@ -14,7 +14,6 @@ data class User(
     @JvmField
     var userType: Int = UserType.Teacher
 ) : BmobData() {
-
     fun isTeacher() = userType == UserType.Teacher
     fun isStudent() = userType == UserType.Student
 }

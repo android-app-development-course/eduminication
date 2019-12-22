@@ -10,13 +10,13 @@ class UserRepository {
     fun signIn(user: User, listener: (String?, BmobException?) -> Unit): Disposable =
         user.add(listener)
 
-    fun logIn(user: User, listener: (BmobException?) -> Unit): Disposable {
+    fun logIn(user: User, listener: (User?,BmobException?) -> Unit): Disposable {
         val query = BmobQuery<User>()
         query.addWhereEqualTo("name",user.name)
         query.addWhereEqualTo("password",user.password)
         query.addWhereEqualTo("userType",user.userType)
         return query.findObjects(object : FindListener<User?>() {
-            override fun done(user: MutableList<User?>?, exception: BmobException?) = listener(exception)
+            override fun done(user: MutableList<User?>?, exception: BmobException?) = listener(user?.get(0),exception)
         })
     }
 }

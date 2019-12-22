@@ -25,7 +25,7 @@ class CourseResourceDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?
-    ) = FragmentCourseResourceDetailBinding.inflate(inflater, container).root
+    ) = FragmentCourseResourceDetailBinding.inflate(inflater, container, false).root
 
     private fun openPdf(pdfFile: File) {
         pdf_view.fromFile(pdfFile).onTap { true }.load()

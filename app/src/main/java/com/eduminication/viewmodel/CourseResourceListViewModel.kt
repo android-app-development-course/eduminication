@@ -9,6 +9,7 @@ import java.sql.SQLException
 
 class CourseResourceListViewModel : ViewModel() {
     private val courseResourceListRepository = CourseResourceRepository()
+
     val courseResourceList= MutableLiveData<MutableList<CourseResource>>(mutableListOf())
 
     fun refreshData(listener:(List<CourseResource>)->Unit= { _ -> }) {

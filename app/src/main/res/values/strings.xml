@@ -48,4 +48,8 @@
     <string name="user_name">用户名</string>
     <string name="password">密码</string>
     <string name="confirm_password">确认密码</string>
+    <string name="file_description">文件简介</string>
+    <string name="file_name">文件名</string>
+    <string name="choose_file">选择文件</string>
+    <string name="file_upload">上传</string>
 </resources>
