@@ -23,7 +23,7 @@ class CourseResourceDetailFragment : Fragment() {
 
         fab_question_list.setOnClickListener {
             Navigation.findNavController(view)
-                .navigate(CourseResourceDetailFragmentDirections.actionNavDataToQuestionListFragment(argsLazy.objectId, ""))
+                .navigate(CourseResourceDetailFragmentDirections.actionNavDataToQuestionListFragment(argsLazy.objectId))
         }
 
         Ion.with(context).load(argsLazy.url).progressBar(progress_bar)

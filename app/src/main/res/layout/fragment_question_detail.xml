@@ -18,6 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="@{question.title}"
+            android:textSize="40dp"
+            android:gravity="center_vertical|left"
             app:layout_constraintBottom_toTopOf="@id/question_content"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,6 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="@{question.content}"
+            android:textSize="30dp"
+            android:gravity="center_vertical|left"
             app:layout_constraintBottom_toTopOf="@id/question_date"
             app:layout_constraintTop_toBottomOf="@id/question_title" />
 
@@ -34,6 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="@{question.createdAt}"
+            android:textSize="30dp"
+            android:gravity="center_vertical|left"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/question_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>

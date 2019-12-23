@@ -6,23 +6,37 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
+import androidx.lifecycle.observe
 import com.eduminication.databinding.FragmentQuestionDetailBinding
 import com.eduminication.viewmodel.QuestionListViewModel
 import kotlinx.coroutines.launch
 
 class QuestionDetailFragment() : Fragment() {
+    private lateinit var binding: FragmentQuestionDetailBinding
     private val questionListViewModel = QuestionListViewModel()
-    private val argsLazy by navArgs<QuestionDetailFragmentArgs>()
+    var questionId: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = FragmentQuestionDetailBinding.inflate(inflater, container, false).root
+    ) = FragmentQuestionDetailBinding.inflate(inflater, container, false).run {
+        binding = this
+        root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        questionListViewModel.questionList.observe(viewLifecycleOwner) {
+            binding.run {
+                question = it.first()
+                executePendingBindings()
+            }
+        }
+    }
 
     override fun onResume() {
         super.onResume()
-        questionListViewModel.questionList.value = null
-        lifecycleScope.launch { questionListViewModel.showData(argsLazy.questionId) }
+        lifecycleScope.launch { questionListViewModel.showData(questionId) }
     }
 }

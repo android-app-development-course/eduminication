@@ -11,12 +11,12 @@ class AnswerViewModel: ViewModel() {
     private val answerRepository = AnswerRepository()
     var answerList = MutableLiveData<MutableList<Answer>>()
 
-    fun refreshData(objectId: String, listener:(List<Answer>)->Unit= { _ -> }) {
-        answerRepository.getItemByQuestionId(objectId){ list, exception ->
-            if (exception != null || list == null)
+    fun showData(questionId: String, listener:(Answer)->Unit= { _ -> }) {
+        answerRepository.getItemByQuestionId(questionId) { answer, exception ->
+            if (exception != null || answer == null)
                 throw SQLException("Unable to get data: $exception")
-            answerList.value = list
-            listener(list)
+            answerList.value = mutableListOf(answer)
+            listener(answer)
         }
     }
 

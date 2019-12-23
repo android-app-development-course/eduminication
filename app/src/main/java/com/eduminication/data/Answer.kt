@@ -1,6 +1,6 @@
 package com.eduminication.data
 
 data class Answer(
-    var detail: String,
+    var content: String,
     var quesetionId: String
 ): BmobData()

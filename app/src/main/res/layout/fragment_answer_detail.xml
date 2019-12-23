@@ -7,12 +7,20 @@
     <data>
         <variable
             name="answer"
-            type="String" />
+            type="com.eduminication.data.Answer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/answer_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@{answer.content}"
+            app:layout_constraintBottom_toTopOf="@+id/add_answer_floating_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_answer_floating_button"
@@ -22,18 +30,10 @@
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/fab_add"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/answer_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{answer}"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

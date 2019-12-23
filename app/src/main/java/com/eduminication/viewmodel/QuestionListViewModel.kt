@@ -20,12 +20,12 @@ class QuestionListViewModel: ViewModel() {
         }
     }
 
-    fun showData(questionId: String, listener:(List<Question>)->Unit= { _ -> }) {
-        questionRepository.getItemByQuestionId(questionId) { list, exception ->
-            if (exception != null || list == null)
+    fun showData(questionId: String, listener:(Question)->Unit= { _ -> }) {
+        questionRepository.getItemByQuestionId(questionId) { question, exception ->
+            if (exception != null || question == null)
                 throw SQLException("Unable to get data: $exception")
-            questionList.value = list
-            listener(list)
+            questionList.value = mutableListOf(question)
+            listener(question)
         }
     }
 

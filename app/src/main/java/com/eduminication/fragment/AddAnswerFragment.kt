@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.fragment_add_answer.*
 class AddAnswerFragment : Fragment() {
     private val argsLazy by navArgs<AddAnswerFragmentArgs>()
     private val answerViewModel = AnswerViewModel()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

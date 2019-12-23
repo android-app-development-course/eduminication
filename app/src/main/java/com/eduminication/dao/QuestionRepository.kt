@@ -14,9 +14,9 @@ class QuestionRepository :DataRepository<Question>(){
         })
     }
 
-    fun getItemByQuestionId(questionId: String, listener: (MutableList<Question>?, BmobException?) -> Unit): Disposable =
+    fun getItemByQuestionId(questionId: String, listener: (Question?, BmobException?) -> Unit): Disposable =
         BmobQuery<Question>().addWhereEqualTo("objectId", questionId).findObjects(object : FindListener<Question>() {
             override fun done(p0: MutableList<Question>?, p1: BmobException?) =
-                listener(p0, p1)
+                listener(p0?.first(), p1)
         })
 }

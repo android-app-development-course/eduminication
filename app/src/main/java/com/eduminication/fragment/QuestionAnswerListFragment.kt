@@ -31,6 +31,8 @@ class QuestionAnswerListFragment : Fragment() {
                 val fragment = pages[position].fragmentClass.java.newInstance()
                 if (position == 0)
                     (fragment as QuestionDetailFragment).questionId = argsLazy.questionId
+                else
+                    (fragment as AnswerDetailFragment).questionId = argsLazy.questionId
                 return fragment
             }
 

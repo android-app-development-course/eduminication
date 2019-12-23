@@ -40,7 +40,7 @@ class QuestionListFragment : Fragment() {
         add_floating_button.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(
-                    QuestionListFragmentDirections.actionQuestionListFragmentToAddQuestionFragment(argsLazy.questionId)
+                    QuestionListFragmentDirections.actionQuestionListFragmentToAddQuestionFragment(argsLazy.objectId)
                 )
         }
     }
