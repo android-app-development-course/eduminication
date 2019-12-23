@@ -26,7 +26,7 @@ class CourseResourceViewHolder(
     private val binding: CourseResourceListItemBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     init {
-        binding.courseResourceCardView.run{
+        binding.courseResourceCardView.run {
             setOnClickListener {
                 navigateToCourseResource(binding.courseResource!!, it)
             }
@@ -39,7 +39,7 @@ class CourseResourceViewHolder(
     ) {
         it.findNavController().navigate(
             CourseResourceFragmentDirections.actionNavCourseResourceToCourseResourceDetail(
-                courseResource.courseFile.absolutePath
+                courseResource.courseFileUri
             )
         )
     }
