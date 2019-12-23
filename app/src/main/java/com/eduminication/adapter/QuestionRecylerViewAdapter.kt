@@ -34,32 +34,35 @@ class QuestionViewHolder(
     }
 
     private fun navigateToQuestion(
-        diary: Question,
+        question: Question,
         it: View
     ) {
         it.findNavController().navigate(
-            QuestionListFragmentDirections.actionQuestionListFragmentToQuestionAnswerListFragment()
+            QuestionListFragmentDirections.actionQuestionListFragmentToQuestionAnswerListFragment(
+                question.objectId
+            )
         )
     }
 
-    fun bind(item: Question, onLongClickListener: (Long) -> Boolean) {
+    fun bind(item: Question) {
         binding.run {
             question = item
-//            questionCardView.setOnLongClickListener { onLongClickListener(item.objectId) }
             executePendingBindings()
         }
     }
 }
 
-class QuestionRecylerViewAdapter(private val onLongClickListener: (Long) -> Boolean) :
+class QuestionRecylerViewAdapter :
     ListAdapter<Question, QuestionViewHolder>(QuestionDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
         return QuestionViewHolder(
-            QuestionListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            QuestionListItemBinding.inflate(LayoutInflater.from(parent.context),
+                parent,
+                false)
         )
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
-        holder.bind(getItem(position), onLongClickListener)
+        holder.bind(getItem(position))
     }
 }

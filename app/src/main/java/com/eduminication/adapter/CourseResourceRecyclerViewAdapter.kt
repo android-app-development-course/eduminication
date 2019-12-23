@@ -28,7 +28,7 @@ class CourseResourceViewHolder(
     init {
         binding.courseResourceCardView.run {
             setOnClickListener {
-                navigateToCourseResource(binding.courseResource!!, it)
+                navigateToCourseResource(binding.courseResource!!, itemView)
             }
         }
     }
@@ -39,7 +39,8 @@ class CourseResourceViewHolder(
     ) {
         it.findNavController().navigate(
             CourseResourceFragmentDirections.actionNavCourseResourceToCourseResourceDetail(
-                courseResource.courseFileUri
+                courseResource.courseFileUri,
+                courseResource.objectId
             )
         )
     }

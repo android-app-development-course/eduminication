@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.eduminication.MainActivity
 import com.eduminication.adapter.CourseResourceRecylerViewAdapter
+import com.eduminication.data.CourseResource
 import com.eduminication.databinding.FragmentCourseResourceListBinding
 import com.eduminication.viewmodel.CourseResourceListViewModel
 import com.eduminication.viewmodel.CourseResourceListViewModelFactory
@@ -22,9 +22,7 @@ class CourseResourceListFragment : Fragment() {
         CourseResourceListViewModelFactory()
     }
 
-    private val sharedViewModel by lazy {
-        (activity as MainActivity).sharedViewModel
-    }
+    var courseType = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +36,15 @@ class CourseResourceListFragment : Fragment() {
                 courseResourceListViewModel.let {
                     it.courseResourceList.observe(
                         viewLifecycleOwner,
-                        Observer { list -> submitList(list) }
+                        Observer { list ->
+                            list?.let {
+                                val filtered = mutableListOf<CourseResource>()
+                                for (resource in list)
+                                    if (resource.courseType == courseType)
+                                        filtered.add(resource)
+                                submitList(filtered)
+                            }
+                        }
                     )
                 }
             }

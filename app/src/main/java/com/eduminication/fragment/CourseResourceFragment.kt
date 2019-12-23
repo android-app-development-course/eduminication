@@ -32,8 +32,12 @@ class CourseResourceFragment : Fragment() {
         )
 
         view_pager.adapter = object : FragmentStateAdapter(this) {
-            override fun createFragment(position: Int) =
-                pages[position].fragmentClass.java.newInstance()
+            override fun createFragment(position: Int): Fragment {
+                val frgment =
+                    pages[position].fragmentClass.java.newInstance() as CourseResourceListFragment
+                frgment.courseType = position
+                return frgment
+            }
 
             override fun getItemCount() = pages.count()
         }

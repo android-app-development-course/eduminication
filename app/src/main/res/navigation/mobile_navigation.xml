@@ -57,6 +57,9 @@
         <argument
             android:name="url"
             app:argType="string" />
+        <argument
+            android:name="objectId"
+            app:argType="string" />
         <action
             android:id="@+id/action_nav_data_to_questionListFragment"
             app:destination="@id/questionListFragment" />
@@ -76,17 +79,28 @@
         <action
             android:id="@+id/action_questionAnswerListFragment_to_addAnswerFragment"
             app:destination="@id/addAnswerFragment" />
+        <argument
+            android:name="questionId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/addQuestionFragment"
         android:name="com.eduminication.fragment.AddQuestionFragment"
         android:label="fragment_question"
-        tools:layout="@layout/fragment_add_question" />
+        tools:layout="@layout/fragment_add_question" >
+        <argument
+            android:name="objectId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/addAnswerFragment"
         android:name="com.eduminication.fragment.AddAnswerFragment"
         android:label="fragment_answer"
-        tools:layout="@layout/fragment_add_answer" />
+        tools:layout="@layout/fragment_add_answer" >
+        <argument
+            android:name="questionId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/questionListFragment"
         android:name="com.eduminication.fragment.QuestionListFragment"
@@ -97,6 +111,9 @@
         <action
             android:id="@+id/action_questionListFragment_to_questionAnswerListFragment"
             app:destination="@id/questionAnswerListFragment" />
+        <argument
+            android:name="objectId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

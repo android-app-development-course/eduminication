@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.eduminication.R
 import com.eduminication.databinding.FragmentQuestionAnswerListBinding
@@ -15,6 +16,8 @@ import kotlinx.android.synthetic.main.fragment_question_answer_list.*
 class QuestionAnswerListFragment : Fragment() {
     private lateinit var pages: Array<ViewPageFragmentInfo>
 
+    private val argsLazy by navArgs<QuestionAnswerListFragmentArgs>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -24,8 +27,12 @@ class QuestionAnswerListFragment : Fragment() {
         )
 
         view_pager.adapter = object : FragmentStateAdapter(this) {
-            override fun createFragment(position: Int) =
-                pages[position].fragmentClass.java.newInstance()
+            override fun createFragment(position: Int): Fragment {
+                val fragment = pages[position].fragmentClass.java.newInstance()
+                if (position == 0)
+                    (fragment as QuestionDetailFragment).questionId = argsLazy.questionId
+                return fragment
+            }
 
             override fun getItemCount() = pages.count()
         }

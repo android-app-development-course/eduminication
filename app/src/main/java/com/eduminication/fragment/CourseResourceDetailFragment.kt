@@ -14,9 +14,7 @@ import kotlinx.android.synthetic.main.fragment_course_resource_detail.*
 import java.io.File
 
 class CourseResourceDetailFragment : Fragment() {
-
     private val argsLazy by navArgs<CourseResourceDetailFragmentArgs>()
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,7 +23,7 @@ class CourseResourceDetailFragment : Fragment() {
 
         fab_question_list.setOnClickListener {
             Navigation.findNavController(view)
-                .navigate(CourseResourceDetailFragmentDirections.actionNavDataToQuestionListFragment())
+                .navigate(CourseResourceDetailFragmentDirections.actionNavDataToQuestionListFragment(argsLazy.objectId, ""))
         }
 
         Ion.with(context).load(argsLazy.url).progressBar(progress_bar)
@@ -35,6 +33,7 @@ class CourseResourceDetailFragment : Fragment() {
                     Toast.makeText(context, "下载失败", Toast.LENGTH_LONG).show()
                 else {
                     openPdf(result)
+                    progress_bar.setVisibility(View.GONE)
                     Toast.makeText(context, "下载成功", Toast.LENGTH_LONG).show()
                 }
             }

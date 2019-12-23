@@ -3,6 +3,7 @@ package com.eduminication.fragment
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,6 @@ import com.eduminication.data.CourseResource
 import com.eduminication.databinding.FragmentUploadCourseResourceBinding
 import com.eduminication.viewmodel.CourseResourceListViewModel
 import kotlinx.android.synthetic.main.fragment_upload_course_resource.*
-import java.io.File
 
 
 class UploadCourseResourceFragment : Fragment() {
@@ -22,7 +22,7 @@ class UploadCourseResourceFragment : Fragment() {
         private const val REQUEST_FILE_GET = 1
     }
 
-    private lateinit var pdfFile: File
+    private lateinit var pdfFilePath: Uri
     private val sharedViewModel by lazy {
         (activity as MainActivity).sharedViewModel
     }
@@ -47,12 +47,13 @@ class UploadCourseResourceFragment : Fragment() {
                     course_resource_name.editText!!.text.toString(),
                     sharedViewModel.user.value!!,
                     course_resource_preview.editText!!.text.toString(),
-                    pdfFile,
+                    pdfFilePath.toString(),
                     sharedViewModel.courseResorcePos
                 )
                 courseResourceListViewModel.add(courseResource)
+                Toast.makeText(context, "上传成功", Toast.LENGTH_LONG).show()
             }else
-                Toast.makeText(context, "用户身份为老师才能上传课件", Toast.LENGTH_LONG)
+                Toast.makeText(context, "用户身份为老师才能上传课件", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -65,8 +66,8 @@ class UploadCourseResourceFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_FILE_GET && resultCode == Activity.RESULT_OK) {
-            pdfFile = File(data?.data!!.path!!)
-            file_path.text = "$pdfFile"
+            pdfFilePath = Uri.parse(data?.data!!.path!!)
+            file_path.text = pdfFilePath.toString()
         }
     }
 }
