@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.eduminication.MainActivity
 import com.eduminication.data.CourseResource
 import com.eduminication.databinding.FragmentUploadCourseResourceBinding
@@ -47,11 +48,12 @@ class UploadCourseResourceFragment : Fragment() {
                     course_resource_name.editText!!.text.toString(),
                     sharedViewModel.user.value!!,
                     course_resource_preview.editText!!.text.toString(),
-                    pdfFilePath.toString(),
+                    "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
                     sharedViewModel.courseResorcePos
                 )
                 courseResourceListViewModel.add(courseResource)
                 Toast.makeText(context, "上传成功", Toast.LENGTH_LONG).show()
+                findNavController().navigate(UploadCourseResourceFragmentDirections.actionUploadCourseFragmentToNavCourseResource())
             }else
                 Toast.makeText(context, "用户身份为老师才能上传课件", Toast.LENGTH_LONG).show()
         }

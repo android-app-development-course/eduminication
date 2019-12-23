@@ -4,22 +4,10 @@
         android:id="@+id/group1"
         android:checkableBehavior="single">
         <item
-            android:id="@id/nav_home"
-            android:title="@string/menu_home" />
-        <item
             android:id="@id/nav_course_resource"
             android:title="@string/menu_resource" />
         <item
             android:id="@id/nav_chat"
             android:title="@string/menu_message" />
     </group>
-
-    <group
-        android:id="@+id/group2"
-        android:checkableBehavior="single">
-        <item
-            android:id="@id/nav_setting"
-            android:title="@string/menu_setting" />
-    </group>
-
 </menu>

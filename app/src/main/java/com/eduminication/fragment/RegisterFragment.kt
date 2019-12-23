@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.eduminication.data.UserType
 import com.eduminication.databinding.FragmentRegisterBinding
 import com.eduminication.viewmodel.UserViewModel
@@ -41,6 +42,8 @@ class RegisterFragment : Fragment() {
                     exception?.let {
                         Toast.makeText(context, "添加错误: $exception", Toast.LENGTH_LONG).show()
                     }
+                    Toast.makeText(context, "注册成功", Toast.LENGTH_LONG).show()
+                    findNavController().navigate(RegisterFragmentDirections.actionGlobalNavLogin())
                 }
             } else
                 Toast.makeText(context, "两次密码不相同", Toast.LENGTH_LONG).show()

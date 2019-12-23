@@ -12,7 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import cn.bmob.v3.Bmob
 import com.eduminication.databinding.ActivityMainBinding
-import com.eduminication.utils.BombId
+import com.eduminication.utils.BmobId
 import com.eduminication.viewmodel.SharedViewModel
 import com.koushikdutta.ion.Ion
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         EasyPermissions.requestPermissions(this, "", 0, Manifest.permission.INTERNET)
 
-        Bmob.initialize(this, BombId)
+        Bmob.initialize(this, BmobId)
 
         Ion.getDefault(this).configure().setLogging("diary-ion", Log.DEBUG)
 

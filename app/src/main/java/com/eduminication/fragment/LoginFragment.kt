@@ -28,7 +28,7 @@ class LoginFragment : Fragment() {
         }
 
         register.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionNavLoginToRegisterFragment())
+            findNavController().navigate(LoginFragmentDirections.actionLoginToRegisterFragment())
         }
 
         login.setOnClickListener {
@@ -38,8 +38,9 @@ class LoginFragment : Fragment() {
                         Toast.makeText(context, "登录错误: $exception", Toast.LENGTH_LONG).show()
                     }
                     (activity as MainActivity).sharedViewModel.user.value = user
+                    Toast.makeText(context, "欢迎回来，" + user?.name, Toast.LENGTH_LONG).show()
                 }
-                findNavController().navigate(LoginFragmentDirections.actionNavLoginToNavHome())
+                findNavController().navigate(LoginFragmentDirections.actionLoginToNavCourseResource())
             } else Toast.makeText(context, "请输入账号和密码", Toast.LENGTH_LONG).show()
         }
     }
