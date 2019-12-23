@@ -39,7 +39,7 @@ class CourseResourceViewHolder(
     ) {
         it.findNavController().navigate(
             CourseResourceFragmentDirections.actionNavCourseResourceToCourseResourceDetail(
-                courseResource.courseFile.absolutePath
+                courseResource.courseFileUri.toString()
             )
         )
     }

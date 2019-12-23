@@ -1,11 +1,11 @@
 package com.eduminication.data
 
-import java.io.File
+import android.net.Uri
 
 data class CourseResource(
      var name: String,
      val author:User,
      var preview: String,
-     var courseFile: File,
+     var courseFileUri: Uri,
      var courseType: Int
 ): BmobData()
