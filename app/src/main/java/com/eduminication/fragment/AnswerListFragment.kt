@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.eduminication.adapter.AnswerRecylerViewAdapter
 import com.eduminication.databinding.FragmentAnswerListBinding
 import com.eduminication.viewmodel.AnswerListViewModel
@@ -32,6 +33,12 @@ class AnswerListFragment : Fragment() {
                     Observer(this::submitList)
                 )
             }
+
+        fab_add.setOnClickListener {
+            findNavController().navigate(
+                QuestionAnswerListFragmentDirections.actionQuestionAnswerListFragmentToAddAnswerFragment(questionId)
+            )
+        }
     }
 
     override fun onResume() {

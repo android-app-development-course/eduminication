@@ -39,7 +39,6 @@ class AddAnswerFragment : Fragment() {
                     )
                 )
             }
-
             Toast.makeText(context, "添加成功", Toast.LENGTH_LONG).show()
         }
     }
