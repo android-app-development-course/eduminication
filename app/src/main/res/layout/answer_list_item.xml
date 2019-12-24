@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="answer"
+            type="com.eduminication.data.Answer" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/answer_card_view"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        android:longClickable="true"
+        app:cardBackgroundColor="@color/question_item_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/text_margin">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/preview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/text_margin"
+                android:text="@{answer.content}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintBottom_toTopOf="@id/author"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:text="@{answer.userId}"
+                android:textAlignment="viewEnd"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/annotation_text_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/preview" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/date"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{answer.createdAt}"
+                android:textAlignment="viewEnd"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/annotation_text_color"
+                app:layout_constraintBottom_toBottomOf="@id/author"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/author"
+                app:layout_constraintTop_toTopOf="@id/author" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

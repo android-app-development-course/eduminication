@@ -7,20 +7,28 @@ import com.eduminication.dao.AnswerRepository
 import com.eduminication.data.Answer
 import java.sql.SQLException
 
-class AnswerViewModel: ViewModel() {
+class AnswerViewModel : ViewModel() {
     private val answerRepository = AnswerRepository()
     var answerList = MutableLiveData<MutableList<Answer>>()
 
-    fun showData(questionId: String, listener:(Answer)->Unit= { _ -> }) {
-        answerRepository.getItemByQuestionId(questionId) { answer, exception ->
-            if (exception != null || answer == null)
+    fun refreshData(questionId: String, listener: (MutableList<Answer>) -> Unit = { _ -> }) {
+        answerRepository.getItemByQuestionId(questionId) { list, exception ->
+            if (exception != null || list == null)
                 throw SQLException("Unable to get data: $exception")
-            answerList.value = mutableListOf(answer)
-            listener(answer)
+            answerList.value = list
+            listener(list)
         }
     }
 
-    fun add (answer: Answer, listener: (String?, BmobException?) -> Unit = { _, _ -> }){
+    fun getById(id: String, listener: (Answer) -> Unit = { _ -> }) =
+        answerRepository.getById(id) { answer, exception ->
+            if (exception != null)
+                throw SQLException("Unable to get data: $exception")
+            listener(answer)
+        }
+
+
+    fun add(answer: Answer, listener: (String?, BmobException?) -> Unit = { _, _ -> }) {
         answerList.value?.add(answer)
         answerRepository.add(answer, listener)
     }
