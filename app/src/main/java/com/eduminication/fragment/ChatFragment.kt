@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import cn.bmob.v3.BmobUser
+import com.eduminication.MainActivity
 import com.eduminication.adapter.ChatContentAdapter
-import com.eduminication.data.ChatContent
 import com.eduminication.data.ChatRecord
-import com.eduminication.data.User
 import com.eduminication.databinding.FragmentChatBinding
 import com.eduminication.viewmodel.ChatViewModel
 import kotlinx.android.synthetic.main.fragment_chat.*
@@ -18,32 +16,42 @@ import kotlinx.android.synthetic.main.fragment_chat.*
 class ChatFragment : Fragment() {
     private val chatViewModel by lazy { ChatViewModel() }
 
+    private val sharedViewModel by lazy {
+        (activity as MainActivity).sharedViewModel
+    }
+
+
     override fun onResume() {
         super.onResume()
-        chatViewModel.refreshData()
+        sharedViewModel.user.value?.run {
+            chatViewModel.refreshData(this)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        send_button.setOnClickListener {
-            val list = chatViewModel.chatItemData.value!!
-            list.add(
-                ChatRecord(
-                    BmobUser.getCurrentUser(User::class.java),
-                    ChatContent(input_content.text.toString())
+        sharedViewModel.user.value?.run {
+            send_button.setOnClickListener {
+                val list = chatViewModel.chatItemData.value!!
+                list.add(
+                    ChatRecord(
+                        this,
+                        input_content.text.toString()
+                    )
                 )
-            )
-            input_content.text?.clear()
-            chat_content.adapter!!.notifyItemInserted(list.lastIndex)
-        }
+                input_content.text?.clear()
+                chat_content.adapter!!.notifyItemInserted(list.lastIndex)
+            }
 
-        ChatContentAdapter().let {
-            chatViewModel.chatItemData.observe(
-                viewLifecycleOwner,
-                Observer(it::submitList)
-            )
-            chat_content.adapter = it
+            ChatContentAdapter().let {
+                chatViewModel.chatItemData.observe(
+                    viewLifecycleOwner,
+                    Observer(it::submitList)
+                )
+                chat_content.adapter = it
+            }
+
         }
     }
 

@@ -23,7 +23,7 @@ class QuestionAnswerListFragment : Fragment() {
 
         pages = arrayOf(
             ViewPageFragmentInfo(getString(R.string.question), QuestionDetailFragment::class),
-            ViewPageFragmentInfo(getString(R.string.answer), AnswerDetailFragment::class)
+            ViewPageFragmentInfo(getString(R.string.answer), AnswerListFragment::class)
         )
 
         view_pager.adapter = object : FragmentStateAdapter(this) {
@@ -32,7 +32,7 @@ class QuestionAnswerListFragment : Fragment() {
                 if (position == 0)
                     (fragment as QuestionDetailFragment).questionId = argsLazy.questionId
                 else
-                    (fragment as AnswerDetailFragment).questionId = argsLazy.questionId
+                    (fragment as AnswerListFragment).questionId = argsLazy.questionId
                 return fragment
             }
 

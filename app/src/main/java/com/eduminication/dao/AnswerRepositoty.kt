@@ -7,10 +7,10 @@ import com.eduminication.data.Answer
 import io.reactivex.disposables.Disposable
 
 class AnswerRepository: DataRepository<Answer>(){
-    fun getItemByQuestionId(questionId: String, listener: (Answer?, BmobException?) -> Unit): Disposable =
+    fun getItemByQuestionId(questionId: String, listener: (MutableList<Answer>?, BmobException?) -> Unit): Disposable =
         BmobQuery<Answer>().addWhereEqualTo("questionId", questionId).findObjects(object : FindListener<Answer>() {
             override fun done(p0: MutableList<Answer>?, p1: BmobException?) {
-                listener(p0?.first(), p1)
+                listener(p0, p1)
             }
         })
 }

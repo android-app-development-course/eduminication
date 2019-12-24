@@ -70,6 +70,9 @@
         <argument
             android:name="questionId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_questionAnswerListFragment_to_answerDetailFragment"
+            app:destination="@id/answerDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/addQuestionFragment"
@@ -120,5 +123,14 @@
         <action
             android:id="@+id/action_uploadCourseFragment_to_nav_course_resource"
             app:destination="@id/nav_course_resource" />
+    </fragment>
+    <fragment
+        android:id="@+id/answerDetailFragment"
+        android:name="com.eduminication.fragment.AnswerDetailFragment"
+        android:label="fragment_answer_detail"
+        tools:layout="@layout/fragment_answer_detail" >
+        <argument
+            android:name="questionId"
+            app:argType="string" />
     </fragment>
 </navigation>
