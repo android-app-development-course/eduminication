@@ -130,7 +130,7 @@
         android:label="fragment_answer_detail"
         tools:layout="@layout/fragment_answer_detail" >
         <argument
-            android:name="questionId"
+            android:name="answerId"
             app:argType="string" />
     </fragment>
 </navigation>

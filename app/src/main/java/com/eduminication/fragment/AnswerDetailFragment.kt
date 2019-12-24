@@ -25,7 +25,7 @@ class AnswerDetailFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            answerListViewModel.getById(argsLazy.questionId) { answer ->
+            answerListViewModel.getById(argsLazy.answerId) { answer ->
                 binding.run {
                     this.answer = answer
                     executePendingBindings()
